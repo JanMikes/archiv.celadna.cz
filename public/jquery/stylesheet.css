@@ -1,0 +1,23 @@
+BODY {margin:0; padding:0;}
+#slidebox {position:relative; margin:0px auto; font-family: verdana;}
+#slidebox, #slidebox .content{width:980px;}
+#slidebox, #slidebox .container, #slidebox .content{height:381px;}
+#slidebox{overflow:hidden;}
+#slidebox .container{position:relative; left:0;}
+#slidebox .content{background:#eee; float:left; position: relative;}
+#slidebox .content div{padding:0px; height:100%; font-family:Verdana, Geneva, sans-serif; font-size:13px;}
+#slidebox .content .descriptBox {position: absolute; background: rgba(124, 185, 44, 0.83); /*rgba(58, 60, 56, 0.65)*/ width: 247px; height: auto; left: 35px;border: 50px;bottom: 50px;padding: 15px;}
+#slidebox .content .descriptBox H2 {float: left; width: 100%; color: #FFF; margin:0;}
+#slidebox .content .descriptBox p {color: #FFF; float: left;}
+#slidebox .content .descriptBox A {float: left; background: #65A80D; padding: 9px; color: #FFF; text-decoration: none; border: 1px solid #42860B; font-weight: 900;}
+#slidebox .next, #slidebox .previous{position:absolute; z-index:2; display:block; width:21px; height:21px;}
+#slidebox .next{right:0; margin-right:10px; background:url(slidebox_next.png) no-repeat left top;}
+#slidebox .next:hover{background:url(slidebox_next_hover.png) no-repeat left top;}
+#slidebox .previous{margin-left:10px; background:url(slidebox_previous.png) no-repeat left top;}
+#slidebox .previous:hover{background:url(slidebox_previous_hover.png) no-repeat left top;}
+#slidebox .thumbs{position:absolute; z-index:2; bottom: 20px; right: 20px;}
+#slidebox .thumbs .thumb{display:block; border: 1px solid #FFF; margin-left:5px; float:left; font-family:Verdana, Geneva, sans-serif; font-size:9px; text-decoration:none; padding: 4px 4px;  color:#fff;border-radius: 50px; width: 15px;height: 15px;}
+#slidebox .thumbs .thumb:hover{background:#fff; color:#000;}
+#slidebox .selected_thumb{display:block; border: 1px solid #FFF; margin-left:5px; float:left; font-family:Verdana, Geneva, sans-serif; font-size:9px; text-decoration:none; padding: 4px 4px;  color:#fff;border-radius: 50px; width: 15px;height: 15px; background:#7CB92C;}
+
+#slidebox .content H3 {width: 100%; text-align: center; font-size: 15px; margin: 0px 0px 5px 0px;}

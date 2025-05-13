@@ -1,0 +1,226 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs">
+<head>
+	<meta http-equiv="Content-Language" content="cs" />
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+	<meta name="description" content="Územní plán"/>
+	<meta name="keywords" content="Územní plán" />
+	<meta name="author" content="Netsimple Conspiracy s.r.o." />
+	<meta name="copyright" content="Čeladná" />
+	<meta name="robots" content="all,follow" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<link href="/css/stylesheet.css?reload=1669600066" rel="stylesheet" type="text/css" />
+	<link href="/css/form.css" rel="stylesheet" type="text/css" />
+	<link href="/css/downloads.css" rel="stylesheet" type="text/css" />
+	<link href="/css/gallery.css" rel="stylesheet" type="text/css" />
+	<link href="/admin/css/stylesheet_tinymce.css" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/notifee.css" type="text/css"/>
+  <script type="text/javascript" src="/jquery/jquery-1.7.2.min.js"></script>
+
+<!-- PopUp - modal box -->
+<link href="/css/reveal.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="/jquery/jquery.reveal.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="/js/scripts.js"></script>  <link href="/jquery/stylesheet.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/jquery/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+
+
+// načtu obrázky
+    	menu_1 = new Image();
+    	menu_1.src="/bannery/'+banner_3.jpg+'";	
+        	menu_2 = new Image();
+    	menu_2.src="/bannery/'+banner_1.jpg+'";	
+        	menu_3 = new Image();
+    	menu_3.src="/bannery/'+banner_4.jpg+'";	
+        	menu_4 = new Image();
+    	menu_4.src="/bannery/'+banner_2.jpg+'";	
+    // END načtu obrázky
+
+
+$(document).ready(function() 
+{
+	var autoPlayTime=5000;
+	autoPlayTimer = setInterval( autoPlay, autoPlayTime);
+	function autoPlay(){
+		Slidebox('next');
+	}
+	$('#slidebox .next').click(function () {
+		Slidebox('next','stop');
+	});
+	$('#slidebox .previous').click(function () {
+		Slidebox('previous','stop');
+	});
+	var yPosition=($('#slidebox').height()-$('#slidebox .next').height())/2;
+	$('#slidebox .next').css('top',yPosition);
+	$('#slidebox .previous').css('top',yPosition);
+	$('#slidebox .thumbs a:first-child').removeClass('thumb').addClass('selected_thumb');
+	$("#slidebox .content").each(function(i){
+		slideboxTotalContent=i*$('#slidebox').width();	
+		$('#slidebox .container').css("width",slideboxTotalContent+$('#slidebox').width());
+	});
+});
+
+function Slidebox(slideTo,autoPlay){
+    var animSpeed=1500; //animation speed
+    var easeType='easeInOutExpo'; //easing type
+	var sliderWidth=$('#slidebox').width();
+	var leftPosition=$('#slidebox .container').css("left").replace("px", "");
+	if( !$("#slidebox .container").is(":animated")){
+		if(slideTo=='next'){ //next
+			if(autoPlay=='stop'){
+				clearInterval(autoPlayTimer);
+			}
+			if(leftPosition==-slideboxTotalContent){
+				$('#slidebox .container').animate({left: 0}, animSpeed, easeType); //reset
+				$('#slidebox .thumbs a:first-child').removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs a:last-child').removeClass('selected_thumb').addClass('thumb');
+			} else {
+				$('#slidebox .container').animate({left: '-='+sliderWidth}, animSpeed, easeType); //next
+				$('#slidebox .thumbs .selected_thumb').next().removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs .selected_thumb').prev().removeClass('selected_thumb').addClass('thumb');
+			}
+		} else if(slideTo=='previous'){ //previous
+			if(autoPlay=='stop'){
+				clearInterval(autoPlayTimer);
+			}
+			if(leftPosition=='0'){
+				$('#slidebox .container').animate({left: '-'+slideboxTotalContent}, animSpeed, easeType); //reset
+				$('#slidebox .thumbs a:last-child').removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs a:first-child').removeClass('selected_thumb').addClass('thumb');
+			} else {
+				$('#slidebox .container').animate({left: '+='+sliderWidth}, animSpeed, easeType); //previous
+				$('#slidebox .thumbs .selected_thumb').prev().removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs .selected_thumb').next().removeClass('selected_thumb').addClass('thumb');
+			}
+		} else {
+			var slide2=(slideTo-1)*sliderWidth;
+			if(leftPosition!=-slide2){
+				clearInterval(autoPlayTimer);
+				$('#slidebox .container').animate({left: -slide2}, animSpeed, easeType); //go to number
+				$('#slidebox .thumbs .selected_thumb').removeClass('selected_thumb').addClass('thumb');
+				var selThumb=$('#slidebox .thumbs a').eq((slideTo-1));
+				selThumb.removeClass('thumb').addClass('selected_thumb');
+			}
+		}
+	}
+}
+</script><link rel="stylesheet" href="/jquery/lightbox/css/lightbox.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="/jquery/lightbox/js/jquery-ui-1.8.18.custom.min.js"></script>
+<script type="text/javascript" src="/jquery/lightbox/js/jquery.smooth-scroll.min.js"></script>
+<script type="text/javascript" src="/jquery/lightbox/js/lightbox.js"></script>	<title>Územní plán - Obec Čeladná</title>
+</head>
+
+<body>
+	<div id="block-top">
+		<div class="wrapper">
+		<div id="logo">
+			<h1 class="hidden">Obec Čeladná</h1>
+			<a href="/"><img src="/img/logo.png" /></a>
+		</div>
+		<ul><li><a href="/">O obci</a><ul class="submenu"><li><a href="/historie" title="Historie">Historie</a></li><li><a href="/soucasnost" title="Současnost">Současnost</a></li><li><a href="/zajimavosti" title="Zajímavosti">Zajímavosti</a></li><li><a href="/sluzby" title="Služby">Služby</a></li><li><a href="/ubytovani" title="Ubytování">Ubytování</a></li><li><a href="/stravovani" title="Stravování">Stravování</a></li><li><a href="/povodnovy-plan" title="Povodňový plán">Povodňový plán</a></li></ul></li><li class="on"><a href="/obecni-urad">Obecní úřad</a><ul class="submenu"><li><a href="/obecni-urad/kontakty" title="Kontakty">Kontakty</a></li><li><a href="/obecni-urad/pronajem-hotelu-prosper" title="Pronájem hotelu Prosper">Pronájem hotelu Prosper</a></li><li><a href="/obecni-urad/koronavirus-covid-19" title="Koronavirus COVID-19">Koronavirus COVID-19</a></li><li><a href="/obecni-urad/struktura-uradu" title="Struktura úřadu">Struktura úřadu</a></li><li><a href="/obecni-urad/uredni-deska" title="Úřední deska">Úřední deska</a></li><li><a href="/obecni-urad/verejnopravni-smlouvy" title="Veřejnoprávní smlouvy ">Veřejnoprávní smlouvy </a></li><li><a href="/obecni-urad/povinne-informace" title="Poskytnuté informace">Poskytnuté informace</a></li><li><a href="/obecni-urad/rozpocet-a-vz" title="Rozpočet a VZ">Rozpočet a VZ</a></li><li><a href="/obecni-urad/vyhlasky" title="Vyhlášky">Vyhlášky</a></li><li><a href="/obecni-urad/formulare" title="Formuláře">Formuláře</a></li><li><a href="/obecni-urad/odpady" title="Odpady">Odpady</a></li><li><a href="/obecni-urad/ochrana-osobnich-udaju" title="Ochrana osobních údajů">Ochrana osobních údajů</a></li><li><a href="/obecni-urad/navody" title="Návody">Návody</a></li><li><a href="/obecni-urad/zivotni-situace" title="Životní situace">Životní situace</a></li><li><a href="/obecni-urad/uzemni-plan" title="Územní plán">Územní plán</a></li><li><a href="/obecni-urad/strategicky-rozvojovy-dokument-obce-celadna-2015-2020" title="Strategický rozvojový dokument obce Čeladná 2021 - 2030">Strategický rozvojový dokument obce Čeladná 2021 - 2030</a></li><li><a href="/obecni-urad/uzemni-studie-z21" title="Územní studie Z21">Územní studie Z21</a></li><li><a href="/obecni-urad/uzemni-studie-z61" title="Územní studie Z61">Územní studie Z61</a></li><li><a href="/obecni-urad/uzemni-studie-z113" title="Územní studie Z113">Územní studie Z113</a></li><li><a href="/obecni-urad/uzemni-studie-z112" title="Územní studie  Z112">Územní studie  Z112</a></li><li><a href="/obecni-urad/uzemni-studie-z69-lokalita-velke-brehy" title="Územní studie Z69">Územní studie Z69</a></li><li><a href="/obecni-urad/uzemni-studie-z27" title="Územní studie Z27">Územní studie Z27</a></li><li><a href="/obecni-urad/uzemni-studie-z24" title="Územní studie Z24">Územní studie Z24</a></li><li><a href="/obecni-urad/uzemni-studie-z57" title="Územní studie Z57">Územní studie Z57</a></li><li><a href="/obecni-urad/uzemni-studie-z48" title="Územní studie Z48">Územní studie Z48</a></li><li><a href="/obecni-urad/uzemni-studie-z35" title="Územní studie Z35">Územní studie Z35</a></li><li><a href="/obecni-urad/uzemni-studie-z62" title="Územní studie Z62">Územní studie Z62</a></li><li><a href="/obecni-urad/uzemni-studie-z106" title="Územní studie Z106">Územní studie Z106</a></li></ul></li><li><a href="/samosprava">Samospráva</a><ul class="submenu"><li><a href="/samosprava/vedeni-obce" title="Vedení obce">Vedení obce</a></li><li><a href="/samosprava/rada-obce" title="Rada obce">Rada obce</a></li><li><a href="/samosprava/zastupitelstvo" title="Zastupitelstvo">Zastupitelstvo</a></li><li><a href="/samosprava/stret-zajmu" title="Střet zájmů">Střet zájmů</a></li><li><a href="/samosprava/financni-vybor" title="Finanční výbor">Finanční výbor</a></li><li><a href="/samosprava/kulturni-komise" title="Kulturní komise">Kulturní komise</a></li><li><a href="/samosprava/kontrolni-vybor" title="Kontrolní výbor">Kontrolní výbor</a></li><li><a href="/samosprava/komise-pro-zivotni-prostredi" title="Komise pro životní prostředí">Komise pro životní prostředí</a></li><li><a href="/samosprava/komise-pro-obcanske-zalezitosti" title="Komise pro občanské záležitosti">Komise pro občanské záležitosti</a></li><li><a href="/samosprava/volby-2021" title="Volby 2021">Volby 2021</a></li><li><a href="/samosprava/volby-2020" title="Volby 2020">Volby 2020</a></li><li><a href="/samosprava/volby-ep-2019" title="Volby EP 2019">Volby EP 2019</a></li><li><a href="/samosprava/volby-do-zast-2018" title="Volby do zast. 2018">Volby do zast. 2018</a></li><li><a href="/samosprava/volba-prezidenta" title="Volba prezidenta">Volba prezidenta</a></li><li><a href="/samosprava/volby-2017" title="Volby 2017">Volby 2017</a></li></ul></li><li><a href="/obecni-organizace">Obecní organizace</a><ul class="submenu"><li><a href="/obecni-organizace/ms" title="MŠ">MŠ</a></li><li><a href="/obecni-organizace/ms-beruska" title="Mateřská škola Čeladenská beruška">Mateřská škola Čeladenská beruška</a></li><li><a href="/obecni-organizace/zs" title="ZŠ">ZŠ</a></li><li><a href="/obecni-organizace/knihovna-a-ic" title="Knihovna a IC">Knihovna a IC</a></li><li><a href="/obecni-organizace/pamatnik-j-kaluse" title="Památník J. Kaluse">Památník J. Kaluse</a></li></ul></li><li><a href="/organizace">Organizace</a><ul class="submenu"><li><a href="/organizace/sbor-dobrovolnych-hasicu" title="Sbor dobrovolných hasičů">Sbor dobrovolných hasičů</a></li><li><a href="/organizace/farnost" title="Farnost">Farnost</a></li><li><a href="/organizace/detsky-domov" title="Dětský domov">Dětský domov</a></li><li><a href="http://edb.cz" title="Evropská databanka" target="_blank">Evropská databanka</a></li><li><a href="/organizace/sk-beskyd-celadna" title="SK Beskyd Čeladná">SK Beskyd Čeladná</a></li><li><a href=" http://www.policie.cz/SCRIPT/imapa.aspx?area=sm&docid=743&nid=276&num=2" title="Policie ČR" target="_blank">Policie ČR</a></li></ul></li></ul>	
+		</div>
+	</div>
+	<div id="main">
+		<div class="wrapper">
+			<div id="slideshow-block">
+				<div id="slidebox"><div class="next"> </div><div class="previous"> </div><div class="container"><div class="content"><div class="descriptBox"><h2>Nové centrum obce</h2><p>Před rokem 2000 stával na místě dnešního náměstí jen zchátralý objekt bývalé textilní továrny, využívaný jako sklad armády.</p><a href="/nove-centrum-obce">Více info</a></div><div><img src="/bannery/banner_1.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Sportovní hala</h2><p>Výstavbu nových bytů doprovázely další investice. Obec otevřela novou školku, vybudovala fotbalové hřiště a víceúčelovou halu.</p><a href="/sportovni-hala">Více info</a></div><div><img src="/bannery/banner_2.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Beskydské rehabilitační centrum</h2><p>Čeladenské lázně, které zaměstnávají 240 většinou místních obyvatel, jsou chloubou obce. Léčí se v nich pacienti z celé republiky.</p><a href="/beskydske-rehabilitacni-centrum">Více info</a></div><div><img src="/bannery/banner_3.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Golfový areál</h2><p>Rozkvět obce souvisí se sportem gentlemanů. Hřiště evropských parametrů bylo otevřeno v roce 2001, kdy se golf začal stávat lidovou zábavou.</p><a href="/golfovy-areal">Více info</a></div><div><img src="/bannery/banner_4.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div></div><div class="thumbs"><a href="#" onClick="Slidebox('1');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('2');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('3');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('4');return false" class="thumb">&nbsp;</a></div></div>			</div>
+			<div id="text-block">
+				<div id="drobeckova-navigace"><a href="/">Úvodní stránka</a> &gt;&gt; <a href="/obecni-urad">Obecní úřad</a> &gt;&gt; Územní plán</div>
+				<div id="text-content">
+					<a name="obsah" class="kotva"></a><h2>Územní plán</h2><p><strong> </strong></p><h3>Návrh Změny č. 2 Územního plánu Čeladná – opakované veřejné projednání</h3><div class="years"><a href="/obecni-urad/uzemni-plan/2022" class="year">2022</a><a href="/obecni-urad/uzemni-plan/2020" class="year">2020</a></div><table><tr><th>Datum vyvěšení</th><th>Soubor ke stažení</th></tr><tr><td>15.03.2022</td><td><a href="/admin/files/ModuleUsneseni/3544-1.pdf">1. I_ÚP Čeladná Změna č. 2_návrh_textová část</a><br /><a href="/admin/files/ModuleUsneseni/3545-2.pdf">2. II_ÚP Čeladná Změna č. 2_odůvodnění_text</a><br /><a href="/admin/files/ModuleUsneseni/3546-3.pdf">3. II_ÚP Čeladná Změna č. 2_text s vyznačením změn</a><br /><a href="/admin/files/ModuleUsneseni/3551-i2a-zm2-zcu-1.pdf">I2a_ZM2_ ZCU-1</a><br /><a href="/admin/files/ModuleUsneseni/3552-i2a-zm2-zcu-2.pdf">I2a_ZM2_ ZCU-2</a><br /><a href="/admin/files/ModuleUsneseni/3553-i2b-zm2-hlv-1.pdf">I2b_ZM2_HLV-1</a><br /><a href="/admin/files/ModuleUsneseni/3554-i2b-zm2-hlv-2.pdf">I2b_ZM2_HLV-2</a><br /><a href="/admin/files/ModuleUsneseni/3555-i2f-zm2-vps-1.pdf">I2f_ZM2_VPS-1</a><br /><a href="/admin/files/ModuleUsneseni/3556-i2f-zm2-vps-2.pdf">I2f_ZM2_VPS-2</a><br /><a href="/admin/files/ModuleUsneseni/3557-ii2a-zm2-kov-1.pdf">II2a_ZM2_KOV-1</a><br /><a href="/admin/files/ModuleUsneseni/3558-ii2a-zm2-kov-2.pdf">II2a_ZM2_KOV-2</a><br /><a href="/admin/files/ModuleUsneseni/3559-ii2a-zm2-kov-legenda-podkresu.pdf">II2a_ZM2_KOV-legenda podkresu</a><br /><a href="/admin/files/ModuleUsneseni/3560-ii2b-zm2-vsv.pdf">II2b_ZM2_VSV</a><br /><a href="/admin/files/ModuleUsneseni/3561-ii2c-zm2-zpf.pdf">II2c_ZM2_ZPF</a><br /></td></tr></table><table></table><h3> - I. Zpráva o uplatňování územního plánu Čeladná</h3><table><tr><th>Datum vyvěšení</th><th>Soubor ke stažení</th></tr><tr><td>28.01.2020</td><td><a href="/admin/files/ModuleUsneseni/2363-i.pdf">I. Zpráva o uplatňování územního plánu Čeladná</a><br /></td></tr></table><table></table><h3>Úplné znění územního plánu Čeladná po změně č. 1B - </h3><table><tr><th>Datum vyvěšení</th><th>Soubor ke stažení</th></tr><tr><td>16.10.2018</td><td><a href="/admin/files/ModuleUsneseni/2360-i.pdf">I. Zpráva o uplatňování územního plánu Čeladná</a><br /><a href="/admin/files/ModuleUsneseni/1711-1.pdf">1. Úplné znění územního plánu Čeladná po změně č. 1B - I.1. Textová část</a><br /><a href="/admin/files/ModuleUsneseni/1712-i.pdf">I.2.a) Výkres základního členění území 01</a><br /><a href="/admin/files/ModuleUsneseni/1713-i.pdf">I.2.a) Výkres základního členění území 02</a><br /><a href="/admin/files/ModuleUsneseni/1714-i.pdf">I.2.b) Hlavní výkres - urbanistická koncepce 01</a><br /><a href="/admin/files/ModuleUsneseni/1715-i.pdf">I.2.b) Hlavní výkres - urbanistická koncepce 02</a><br /><a href="/admin/files/ModuleUsneseni/1716-i.pdf">I.2.c) Hlavní výkres - koncepce dopravní infrastruktury 01</a><br /><a href="/admin/files/ModuleUsneseni/1717-i.pdf">I.2.c) Hlavní výkres - koncepce dopravní infrastruktury 02</a><br /><a href="/admin/files/ModuleUsneseni/1718-i.pdf">I.2.d) Hlavní výkres - koncepce vodního hospodářství 01</a><br /><a href="/admin/files/ModuleUsneseni/1719-i.pdf">I.2.d) Hlavní výkres - koncepce vodního hospodářství 02</a><br /><a href="/admin/files/ModuleUsneseni/1720-i.pdf">I.2.e) Hlavní výkres - koncepce energetiky a spojů 01</a><br /><a href="/admin/files/ModuleUsneseni/1721-i.pdf">I.2.e) Hlavní výkres - koncepce energetiky a spojů 02</a><br /><a href="/admin/files/ModuleUsneseni/1722-i.pdf">I.2.f) Výkres veřejně prospěšných staveb, opatření a asanací 01</a><br /><a href="/admin/files/ModuleUsneseni/1723-i.pdf">I.2.f) Výkres veřejně prospěšných staveb, opatření a asanací 02</a><br /><a href="/admin/files/ModuleUsneseni/1724-i.pdf">I.2.g) Schéma ploch podmíněných realizací obchvatu Pavliskova dvora</a><br /><a href="/admin/files/ModuleUsneseni/1725-ii.pdf">II.2.a) Koordinační výkres 01</a><br /><a href="/admin/files/ModuleUsneseni/1726-ii.pdf">II.2.a) Koordinační výkres 02</a><br /></td></tr></table><p>Do <strong>úplného znění územního plánu Čeladná po změně č. 1B</strong> lze nahlížet na níže uvedených místech:</p>
+<ul>
+<li>Obecní úřad Čeladná, Stavební úřad, Čeladná č. 1, 739 12 Čeladná</li>
+<li>Krajský úřad Moravskoslezského kraje, Odbor územního plánování a stavebního řádu, 28. října 117, 702 18 Ostrava</li>
+<li>Městský úřad Frýdlant nad Ostravicí, Odbor regionálního rozvoje a stavební úřad, Náměstí 3, 739 11 Frýdlant nad Ostravicí      </li>
+</ul><table></table><h3>Změna č. 1B Územního plánu Čeladná vydaná dne 20. 9. 2018 zastupitelstvem obce - </h3><table><tr><th>Datum vyvěšení</th><th>Soubor ke stažení</th></tr><tr><td>16.10.2018</td><td><a href="/admin/files/ModuleUsneseni/1727-1.pdf">1. ÚP Čeladná - změna č. 1B - textová část + odůvodnění</a><br /><a href="/admin/files/ModuleUsneseni/1728-priloha-c.pdf">Příloha č. 1 odůvodnění změny č. 1B</a><br /><a href="/admin/files/ModuleUsneseni/1729-priloha-c.pdf">Příloha č. 2 odůvodnění změny č. 1B</a><br /><a href="/admin/files/ModuleUsneseni/1730-priloha-c.pdf">Příloha č. 3 odůvodnění změny č. 1B</a><br /><a href="/admin/files/ModuleUsneseni/1731-up-celadna-zmena-c.pdf">ÚP Čeladná - změna č. 1B - NATURA posouzení</a><br /><a href="/admin/files/ModuleUsneseni/1732-up-celadna-zmena-c.pdf">ÚP Čeladná - změna č. 1B - SEA posouzení</a><br /><a href="/admin/files/ModuleUsneseni/1733-up-celadna-zmena-c.pdf">ÚP Čeladná - změna č. 1B - vyhodnocení vlivu na udrž. rozvoj území</a><br /><a href="/admin/files/ModuleUsneseni/1734-i.pdf">I.2.a - Výkres základního členění území</a><br /><a href="/admin/files/ModuleUsneseni/1735-i.pdf">I.2.b - Hlavní výkres - urbanistická koncepce</a><br /><a href="/admin/files/ModuleUsneseni/1736-i.pdf">I.2.c - Hlavní výkres - koncepce dopravní infrastruktury</a><br /><a href="/admin/files/ModuleUsneseni/1737-i.pdf">I.2.d - Hlavní výkres - koncepce vodního hospodářství</a><br /><a href="/admin/files/ModuleUsneseni/1738-i.pdf">I.2.e - Hlavní výkres - koncepce energetiky a spojů</a><br /><a href="/admin/files/ModuleUsneseni/1739-i.pdf">I.2.f - Výkres veřejně prospěšných staveb, opatření a asanací</a><br /><a href="/admin/files/ModuleUsneseni/1740-i.pdf">I.2.g - Schéma ploch podmíněných realizací obchvatu Pavliskova dvora</a><br /><a href="/admin/files/ModuleUsneseni/1741-ii.pdf">II.2.a - Koordinační výkres - 1. část</a><br /><a href="/admin/files/ModuleUsneseni/1742-ii.pdf">II.2.a - Koordinační výkres - 2. část</a><br /><a href="/admin/files/ModuleUsneseni/1743-ii.pdf">II.2.c - Výkres předpokládaných záborů půdního fondu</a><br /></td></tr></table><p>Do <strong>změny č. 1B územního plánu Čeladná</strong>, která nabyla účinnosti <strong>dne 31. 10. 2018,</strong> lze nahlížet na níže uvedených místech:</p>
+<ul>
+<li>Obecní úřad Čeladná, Stavební úřad, Čeladná č. 1, 739 12 Čeladná</li>
+<li>Krajský úřad Moravskoslezského kraje, Odbor územního plánování a stavebního řádu, 28. října 117, 702 18 Ostrava</li>
+<li>Městský úřad Frýdlant nad Ostravicí, Odbor regionálního rozvoje a stavební úřad, Náměstí 3, 739 11 Frýdlant nad Ostravicí        </li>
+<li>Do dokladové části lze nahlížet na Obecním úřadu Čeladná, Čeladná č. 1, 739 12 Čeladná</li>
+</ul><table></table><h3>Územní plán Čeladná 2014 - </h3><table><tr><th>Datum vyvěšení</th><th>Soubor ke stažení</th></tr><tr><td>-</td><td><a href="/admin/files/ModuleUsneseni/1924-i.pdf">I.2.a - Výkres základního členění území 01</a><br /><a href="/admin/files/ModuleUsneseni/1925-i.pdf">I.2.a - Výkres základního členění území 02</a><br /><a href="/admin/files/ModuleUsneseni/1926-i.pdf">I.2.b - Hlavní výkres - urbanistická koncepce 01</a><br /><a href="/admin/files/ModuleUsneseni/1927-i.pdf">I.2.b - Hlavní výkres - urbanistická koncepce 02</a><br /><a href="/admin/files/ModuleUsneseni/1928-i.pdf">I.2.c - Hlavní výkres - koncepce dopravní infrastruktury 01</a><br /><a href="/admin/files/ModuleUsneseni/1929-i.pdf">I.2.c - Hlavní výkres - koncepce dopravní infrastruktury 02</a><br /><a href="/admin/files/ModuleUsneseni/1930-i.pdf">I.2.d - Hlavní výkres - koncepce vodního hospodářství 01</a><br /><a href="/admin/files/ModuleUsneseni/1931-i.pdf">I.2.d - Hlavní výkres - koncepce vodního hospodářství 02</a><br /><a href="/admin/files/ModuleUsneseni/1932-i.pdf">I.2.e - Hlavní výkres - koncepce energetiky a spojů 01</a><br /><a href="/admin/files/ModuleUsneseni/1933-i.pdf">I.2.e - Hlavní výkres - koncepce energetiky a spojů 02</a><br /><a href="/admin/files/ModuleUsneseni/1934-i.pdf">I.2.f - Výkres veřejně prospěšných staveb 01</a><br /><a href="/admin/files/ModuleUsneseni/1935-i.pdf">I.2.f - Výkres veřejně prospěšných staveb 02</a><br /><a href="/admin/files/ModuleUsneseni/1936-i.pdf">I.2.g - Schéma podmíněných ploch</a><br /><a href="/admin/files/ModuleUsneseni/1937-ii.pdf">II.2.a - Koordinační výkres 01</a><br /><a href="/admin/files/ModuleUsneseni/1938-ii.pdf">II.2.a - Koordinační výkres 02</a><br /><a href="/admin/files/ModuleUsneseni/1939-ii.pdf">II.2.b - Výkres širších vztahů</a><br /><a href="/admin/files/ModuleUsneseni/1940-ii.pdf">II.2.c - Výkres předpokládaných záborů půdního fondu 01</a><br /><a href="/admin/files/ModuleUsneseni/1941-ii.pdf">II.2.c - Výkres předpokládaných záborů půdního fondu 02</a><br /><a href="/admin/files/ModuleUsneseni/1942-celadna-natura-2000.pdf">Čeladná - Natura 2000</a><br /><a href="/admin/files/ModuleUsneseni/1943-celadna-sea.pdf">Čeladná - SEA</a><br /><a href="/admin/files/ModuleUsneseni/1944-celadna-sea-dodatek.pdf">Čeladná - SEA-dodatek</a><br /><a href="/admin/files/ModuleUsneseni/1945-celadna-udrzitelny-rozvoj.pdf">Čeladná - UDRŽITELNÝ ROZVOJ</a><br /><a href="/admin/files/ModuleUsneseni/1946-celadna-udrzitelny-rozvoj-dodatek.pdf">Čeladná - UDRŽITELNÝ ROZVOJ-dodatek</a><br /><a href="/admin/files/ModuleUsneseni/1947-celadna-up-textova-cast.pdf">Čeladná - ÚP textová část</a><br /><a href="/admin/files/ModuleUsneseni/1948-priloha-c.pdf">Příloha č. 1 odůvodnění ÚP Čeladná - část A - Rozhodnutí o námitkách podaných k VP</a><br /><a href="/admin/files/ModuleUsneseni/1949-priloha-c.pdf">Příloha č. 1 odůvodnění ÚP Čeladná - část B - Rozhodnutí o námitkách podaných k opakovanému VP</a><br /><a href="/admin/files/ModuleUsneseni/1950-priloha-c.pdf">Příloha č. 2 odůvodnění ÚP Čeladná - Vyhodnocení připomínek</a><br /></td></tr></table><p> <img title="Logo EU" src="/admin/upload_tinymce/45.jpg" alt="Logo EU" width="516" height="61" /></p>
+<p>Projekt „Zpracování územního plánu pro obec Čeladná" je spolufinancován z Evropského fondu pro regionální rozvoj v rámci Integrovaného operačního programu.</p>
+<p>Části územního plánu Čeladná týkající se vymezení ploch Z1 – Z10 a trasy VD1 byly zrušeny rozsudkem Krajského soudu v Ostravě ozn. 79 A 10/2014 - 64 ze dne 30. 4. 2015.</p>
+<p>Změnou č. 1B byl územní plán v částech týkajících ploch Z1 – Z10 opětovně doplněn.</p><table></table>				</div>
+				<div id="text-content-submenu">
+					<ul>
+						<li><a href="/fotogalerie">Fotogalerie</a></li>
+						<li><a href="/virtualni-prohlidka">Virtuální prohlídka</a></li>
+						<li><a href="/zpravodaj">Zpravodaj</a></li>
+					</ul>
+				</div>
+				<div id="fast-kontakt">
+					<h2><span class="bolder">Rychlý</span> kontakt</h2>
+					<ul>
+						<li> <img src="/img/mobile.png" />+420 558 684 008</li>
+						<li> <img src="/img/post.png" /><a href="mailto:celadna@iol.cz">celadna@iol.cz</a></li>
+						<li> <img src="/img/house.png" />Čeladná č.p. 1, 739 12 Čeladná</li>
+					</ul>
+          <div style="float:right; height:240px;"><iframe src="https://polar.cz/rss/celadna" scrolling="no" class="iframe-polar" style="border:none;" width="283" height="240"></iframe></div>
+          
+				</div>
+			</div>
+			<div id="footer-block">
+	<ul>
+		<li><a href="/">O obci</a></li>
+		<li><a href="/obecni-urad">Obecní úřad</a></li>
+	</ul>
+	<ul>
+		<li><a href="/samosprava">Samospráva</a></li>
+		<li><a href="/obecni-organizace">Obecní organizace</a></li>	
+	</ul>
+	<ul>
+		<li><a href="/organizace">Organizace</a></li>
+		<li><a href="/fotogalerie">Fotogalerie</a></li>
+	</ul>
+	<ul>
+		<li><a href="/virtualni-prohlidka">Virtuální prohlídka</a></li>
+		<li><a href="/zpravodaj">Zpravodaj</a></li>
+	</ul>
+	<ul>
+		<li><a href="/podminky-uziti">Podmínky užití</a></li>
+		<li><a href="/mapa-stranek">Mapa stránek</a></li>
+	</ul>
+  
+  <a class="senior-taxi" href="/senior-taxi"><img src="/images/senioracek.png" alt="Senior Taxi"></a>
+  
+	<div id="footer-right-col">
+		<p>Copyright © 2014 Čeladná
+		Všechna práva vyhrazena.
+		</p>
+		<p>Webdesign a programování 
+		Netsimple Conspiracy s.r.o.
+		</p>
+		<a href="http://www.netsimple.cz" title="Netsimple - Tvorba webových stránek a aplikací"><img src="/img/netsimple-logo.png" /></a>
+	</div>
+  <div id="app">
+    <span class="label">Aplikace Obec Čeladná ke stažení zdarma</span>
+    <a href="https://play.google.com/store/apps/details?id=cz.tripon.obecceladna" onclick="return !bar(this.href)"><img src="/images/google.png" /></a>
+    <a href="https://itunes.apple.com/us/app/obec-celadna/id1102072135?l=cs&ls=1&mt=8" onclick="return !bar(this.href)"><img src="/images/apple.png" /></a>
+  </div>
+</div>
+
+<div class="cezFrame">
+  <a href="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/redirect"><img src="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/b/728" alt="ČEZ Distribuce – Plánované odstávky" width="728" height="90"></a>
+</div>		</div>
+	</div>
+  
+  <div id="notifee-dialog-wrapper"></div>
+  <div id="notifee-icon-wrapper"></div>
+  <div id="notifee-banner-wrapper"></div>
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-messaging.js"></script>
+  <script src="/js/notifee.js"></script>
+  <script>
+  Notifee.init("https://" + window.location.host, true);
+  </script>
+</body>
+
+</html>

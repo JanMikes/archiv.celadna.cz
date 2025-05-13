@@ -1,0 +1,212 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs">
+<head>
+	<meta http-equiv="Content-Language" content="cs" />
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+	<meta name="description" content="Úřední deska"/>
+	<meta name="keywords" content="Úřední deska" />
+	<meta name="author" content="Netsimple Conspiracy s.r.o." />
+	<meta name="copyright" content="Čeladná" />
+	<meta name="robots" content="all,follow" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<link href="/css/stylesheet.css?reload=1656916201" rel="stylesheet" type="text/css" />
+	<link href="/css/form.css" rel="stylesheet" type="text/css" />
+	<link href="/css/downloads.css" rel="stylesheet" type="text/css" />
+	<link href="/css/gallery.css" rel="stylesheet" type="text/css" />
+	<link href="/admin/css/stylesheet_tinymce.css" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/notifee.css" type="text/css"/>
+  <script type="text/javascript" src="/jquery/jquery-1.7.2.min.js"></script>
+
+<!-- PopUp - modal box -->
+<link href="/css/reveal.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="/jquery/jquery.reveal.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="/js/scripts.js"></script>  <link href="/jquery/stylesheet.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/jquery/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+
+
+// načtu obrázky
+    	menu_1 = new Image();
+    	menu_1.src="/bannery/'+banner_3.jpg+'";	
+        	menu_2 = new Image();
+    	menu_2.src="/bannery/'+banner_1.jpg+'";	
+        	menu_3 = new Image();
+    	menu_3.src="/bannery/'+banner_4.jpg+'";	
+        	menu_4 = new Image();
+    	menu_4.src="/bannery/'+banner_2.jpg+'";	
+    // END načtu obrázky
+
+
+$(document).ready(function() 
+{
+	var autoPlayTime=5000;
+	autoPlayTimer = setInterval( autoPlay, autoPlayTime);
+	function autoPlay(){
+		Slidebox('next');
+	}
+	$('#slidebox .next').click(function () {
+		Slidebox('next','stop');
+	});
+	$('#slidebox .previous').click(function () {
+		Slidebox('previous','stop');
+	});
+	var yPosition=($('#slidebox').height()-$('#slidebox .next').height())/2;
+	$('#slidebox .next').css('top',yPosition);
+	$('#slidebox .previous').css('top',yPosition);
+	$('#slidebox .thumbs a:first-child').removeClass('thumb').addClass('selected_thumb');
+	$("#slidebox .content").each(function(i){
+		slideboxTotalContent=i*$('#slidebox').width();	
+		$('#slidebox .container').css("width",slideboxTotalContent+$('#slidebox').width());
+	});
+});
+
+function Slidebox(slideTo,autoPlay){
+    var animSpeed=1500; //animation speed
+    var easeType='easeInOutExpo'; //easing type
+	var sliderWidth=$('#slidebox').width();
+	var leftPosition=$('#slidebox .container').css("left").replace("px", "");
+	if( !$("#slidebox .container").is(":animated")){
+		if(slideTo=='next'){ //next
+			if(autoPlay=='stop'){
+				clearInterval(autoPlayTimer);
+			}
+			if(leftPosition==-slideboxTotalContent){
+				$('#slidebox .container').animate({left: 0}, animSpeed, easeType); //reset
+				$('#slidebox .thumbs a:first-child').removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs a:last-child').removeClass('selected_thumb').addClass('thumb');
+			} else {
+				$('#slidebox .container').animate({left: '-='+sliderWidth}, animSpeed, easeType); //next
+				$('#slidebox .thumbs .selected_thumb').next().removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs .selected_thumb').prev().removeClass('selected_thumb').addClass('thumb');
+			}
+		} else if(slideTo=='previous'){ //previous
+			if(autoPlay=='stop'){
+				clearInterval(autoPlayTimer);
+			}
+			if(leftPosition=='0'){
+				$('#slidebox .container').animate({left: '-'+slideboxTotalContent}, animSpeed, easeType); //reset
+				$('#slidebox .thumbs a:last-child').removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs a:first-child').removeClass('selected_thumb').addClass('thumb');
+			} else {
+				$('#slidebox .container').animate({left: '+='+sliderWidth}, animSpeed, easeType); //previous
+				$('#slidebox .thumbs .selected_thumb').prev().removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs .selected_thumb').next().removeClass('selected_thumb').addClass('thumb');
+			}
+		} else {
+			var slide2=(slideTo-1)*sliderWidth;
+			if(leftPosition!=-slide2){
+				clearInterval(autoPlayTimer);
+				$('#slidebox .container').animate({left: -slide2}, animSpeed, easeType); //go to number
+				$('#slidebox .thumbs .selected_thumb').removeClass('selected_thumb').addClass('thumb');
+				var selThumb=$('#slidebox .thumbs a').eq((slideTo-1));
+				selThumb.removeClass('thumb').addClass('selected_thumb');
+			}
+		}
+	}
+}
+</script><link rel="stylesheet" href="/jquery/lightbox/css/lightbox.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="/jquery/lightbox/js/jquery-ui-1.8.18.custom.min.js"></script>
+<script type="text/javascript" src="/jquery/lightbox/js/jquery.smooth-scroll.min.js"></script>
+<script type="text/javascript" src="/jquery/lightbox/js/lightbox.js"></script>	<title>Úřední deska - Obec Čeladná</title>
+</head>
+
+<body>
+	<div id="block-top">
+		<div class="wrapper">
+		<div id="logo">
+			<h1 class="hidden">Obec Čeladná</h1>
+			<a href="/"><img src="/img/logo.png" /></a>
+		</div>
+		<ul><li><a href="/">O obci</a><ul class="submenu"><li><a href="/historie" title="Historie">Historie</a></li><li><a href="/soucasnost" title="Současnost">Současnost</a></li><li><a href="/zajimavosti" title="Zajímavosti">Zajímavosti</a></li><li><a href="/sluzby" title="Služby">Služby</a></li><li><a href="/ubytovani" title="Ubytování">Ubytování</a></li><li><a href="/stravovani" title="Stravování">Stravování</a></li><li><a href="/povodnovy-plan" title="Povodňový plán">Povodňový plán</a></li></ul></li><li class="on"><a href="/obecni-urad">Obecní úřad</a><ul class="submenu"><li><a href="/obecni-urad/kontakty" title="Kontakty">Kontakty</a></li><li><a href="/obecni-urad/pronajem-hotelu-prosper" title="Pronájem hotelu Prosper">Pronájem hotelu Prosper</a></li><li><a href="/obecni-urad/koronavirus-covid-19" title="Koronavirus COVID-19">Koronavirus COVID-19</a></li><li><a href="/obecni-urad/struktura-uradu" title="Struktura úřadu">Struktura úřadu</a></li><li><a href="/obecni-urad/uredni-deska" title="Úřední deska">Úřední deska</a></li><li><a href="/obecni-urad/verejnopravni-smlouvy" title="Veřejnoprávní smlouvy ">Veřejnoprávní smlouvy </a></li><li><a href="/obecni-urad/povinne-informace" title="Poskytnuté informace">Poskytnuté informace</a></li><li><a href="/obecni-urad/rozpocet-a-vz" title="Rozpočet a VZ">Rozpočet a VZ</a></li><li><a href="/obecni-urad/vyhlasky" title="Vyhlášky">Vyhlášky</a></li><li><a href="/obecni-urad/formulare" title="Formuláře">Formuláře</a></li><li><a href="/obecni-urad/odpady" title="Odpady">Odpady</a></li><li><a href="/obecni-urad/ochrana-osobnich-udaju" title="Ochrana osobních údajů">Ochrana osobních údajů</a></li><li><a href="/obecni-urad/navody" title="Návody">Návody</a></li><li><a href="/obecni-urad/zivotni-situace" title="Životní situace">Životní situace</a></li><li><a href="/obecni-urad/uzemni-plan" title="Územní plán">Územní plán</a></li><li><a href="/obecni-urad/strategicky-rozvojovy-dokument-obce-celadna-2015-2020" title="Strategický rozvojový dokument obce Čeladná 2021 - 2030">Strategický rozvojový dokument obce Čeladná 2021 - 2030</a></li><li><a href="/obecni-urad/uzemni-studie-z21" title="Územní studie Z21">Územní studie Z21</a></li><li><a href="/obecni-urad/uzemni-studie-z61" title="Územní studie Z61">Územní studie Z61</a></li><li><a href="/obecni-urad/uzemni-studie-z113" title="Územní studie Z113">Územní studie Z113</a></li><li><a href="/obecni-urad/uzemni-studie-z112" title="Územní studie  Z112">Územní studie  Z112</a></li><li><a href="/obecni-urad/uzemni-studie-z69-lokalita-velke-brehy" title="Územní studie Z69">Územní studie Z69</a></li><li><a href="/obecni-urad/uzemni-studie-z27" title="Územní studie Z27">Územní studie Z27</a></li><li><a href="/obecni-urad/uzemni-studie-z24" title="Územní studie Z24">Územní studie Z24</a></li><li><a href="/obecni-urad/uzemni-studie-z57" title="Územní studie Z57">Územní studie Z57</a></li><li><a href="/obecni-urad/uzemni-studie-z48" title="Územní studie Z48">Územní studie Z48</a></li><li><a href="/obecni-urad/uzemni-studie-z35" title="Územní studie Z35">Územní studie Z35</a></li><li><a href="/obecni-urad/uzemni-studie-z62" title="Územní studie Z62">Územní studie Z62</a></li><li><a href="/obecni-urad/uzemni-studie-z106" title="Územní studie Z106">Územní studie Z106</a></li></ul></li><li><a href="/samosprava">Samospráva</a><ul class="submenu"><li><a href="/samosprava/vedeni-obce" title="Vedení obce">Vedení obce</a></li><li><a href="/samosprava/rada-obce" title="Rada obce">Rada obce</a></li><li><a href="/samosprava/zastupitelstvo" title="Zastupitelstvo">Zastupitelstvo</a></li><li><a href="/samosprava/stret-zajmu" title="Střet zájmů">Střet zájmů</a></li><li><a href="/samosprava/financni-vybor" title="Finanční výbor">Finanční výbor</a></li><li><a href="/samosprava/kulturni-komise" title="Kulturní komise">Kulturní komise</a></li><li><a href="/samosprava/kontrolni-vybor" title="Kontrolní výbor">Kontrolní výbor</a></li><li><a href="/samosprava/komise-pro-zivotni-prostredi" title="Komise pro životní prostředí">Komise pro životní prostředí</a></li><li><a href="/samosprava/komise-pro-obcanske-zalezitosti" title="Komise pro občanské záležitosti">Komise pro občanské záležitosti</a></li><li><a href="/samosprava/volby-2021" title="Volby 2021">Volby 2021</a></li><li><a href="/samosprava/volby-2020" title="Volby 2020">Volby 2020</a></li><li><a href="/samosprava/volby-ep-2019" title="Volby EP 2019">Volby EP 2019</a></li><li><a href="/samosprava/volby-do-zast-2018" title="Volby do zast. 2018">Volby do zast. 2018</a></li><li><a href="/samosprava/volba-prezidenta" title="Volba prezidenta">Volba prezidenta</a></li><li><a href="/samosprava/volby-2017" title="Volby 2017">Volby 2017</a></li></ul></li><li><a href="/obecni-organizace">Obecní organizace</a><ul class="submenu"><li><a href="/obecni-organizace/ms" title="MŠ">MŠ</a></li><li><a href="/obecni-organizace/ms-beruska" title="Mateřská škola Čeladenská beruška">Mateřská škola Čeladenská beruška</a></li><li><a href="/obecni-organizace/zs" title="ZŠ">ZŠ</a></li><li><a href="/obecni-organizace/knihovna-a-ic" title="Knihovna a IC">Knihovna a IC</a></li><li><a href="/obecni-organizace/pamatnik-j-kaluse" title="Památník J. Kaluse">Památník J. Kaluse</a></li></ul></li><li><a href="/organizace">Organizace</a><ul class="submenu"><li><a href="/organizace/sbor-dobrovolnych-hasicu" title="Sbor dobrovolných hasičů">Sbor dobrovolných hasičů</a></li><li><a href="/organizace/farnost" title="Farnost">Farnost</a></li><li><a href="/organizace/detsky-domov" title="Dětský domov">Dětský domov</a></li><li><a href="http://edb.cz" title="Evropská databanka" target="_blank">Evropská databanka</a></li><li><a href="/organizace/sk-beskyd-celadna" title="SK Beskyd Čeladná">SK Beskyd Čeladná</a></li><li><a href=" http://www.policie.cz/SCRIPT/imapa.aspx?area=sm&docid=743&nid=276&num=2" title="Policie ČR" target="_blank">Policie ČR</a></li></ul></li></ul>	
+		</div>
+	</div>
+	<div id="main">
+		<div class="wrapper">
+			<div id="slideshow-block">
+				<div id="slidebox"><div class="next"> </div><div class="previous"> </div><div class="container"><div class="content"><div class="descriptBox"><h2>Nové centrum obce</h2><p>Před rokem 2000 stával na místě dnešního náměstí jen zchátralý objekt bývalé textilní továrny, využívaný jako sklad armády.</p><a href="/nove-centrum-obce">Více info</a></div><div><img src="/bannery/banner_1.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Sportovní hala</h2><p>Výstavbu nových bytů doprovázely další investice. Obec otevřela novou školku, vybudovala fotbalové hřiště a víceúčelovou halu.</p><a href="/sportovni-hala">Více info</a></div><div><img src="/bannery/banner_2.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Beskydské rehabilitační centrum</h2><p>Čeladenské lázně, které zaměstnávají 240 většinou místních obyvatel, jsou chloubou obce. Léčí se v nich pacienti z celé republiky.</p><a href="/beskydske-rehabilitacni-centrum">Více info</a></div><div><img src="/bannery/banner_3.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Golfový areál</h2><p>Rozkvět obce souvisí se sportem gentlemanů. Hřiště evropských parametrů bylo otevřeno v roce 2001, kdy se golf začal stávat lidovou zábavou.</p><a href="/golfovy-areal">Více info</a></div><div><img src="/bannery/banner_4.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div></div><div class="thumbs"><a href="#" onClick="Slidebox('1');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('2');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('3');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('4');return false" class="thumb">&nbsp;</a></div></div>			</div>
+			<div id="text-block">
+				<div id="drobeckova-navigace"><a href="/">Úvodní stránka</a> &gt;&gt; <a href="/obecni-urad">Obecní úřad</a> &gt;&gt; Úřední deska</div>
+				<div id="text-content">
+					<a name="obsah" class="kotva"></a><h2>Úřední deska</h2><h3>viz. přiložený soubor</h3><div class="years"><a href="/obecni-urad/uredni-deska/2022" class="year">2022</a><a href="/obecni-urad/uredni-deska/2021" class="year">2021</a><a href="/obecni-urad/uredni-deska/2020" class="year">2020</a><a href="/obecni-urad/uredni-deska/2019" class="year">2019</a><a href="/obecni-urad/uredni-deska/2018" class="year">2018</a><a href="/obecni-urad/uredni-deska/2017" class="year">2017</a><a href="/obecni-urad/uredni-deska/2016" class="year">2016</a><a href="/obecni-urad/uredni-deska/2015" class="year">2015</a><a href="/obecni-urad/uredni-deska/2014" class="year">2014</a></div><table><tr><th>Datum vyvěšení</th><th>Soubor ke stažení</th></tr><tr><td>17.12.2019</td><td><a href="/admin/files/ModuleUsneseni/2340-sekretariat-celadna.pdf">Zápis a usnesení ze zasedání rady obce Čeladná č. 16 ze dne 25. 11. 2019</a><br /></td></tr></table><table><tr><td>18.12.2019</td><td><a href="/admin/files/ModuleUsneseni/2334-optimalizovany-rezim-up-.pdf">Finanční úřad pro MSK - optimalizovaný režim územního pracoviště ve Frýdlantu n. O. od 1. 1. 2020</a><br /></td></tr></table><table><tr><td>17.12.2019</td><td><a href="/admin/files/ModuleUsneseni/2330-vv-cvrk-17.pdf">Veřejná vyhláška - oznámení o zahájení vodoprávního řízení a seznámení s podklady rozhodnutí, </a><br /></td></tr></table><table><tr><td>13.12.2019</td><td><a href="/admin/files/ModuleUsneseni/2320-sekretariat-celadna.pdf">Rozpočet Obce Čeladná na rok 2020</a><br /></td></tr></table><table><tr><td>13.12.2019</td><td><a href="/admin/files/ModuleUsneseni/2321-sekretariat-celadna.pdf">Střednědobý výhled rozpočtu Obce Čeladná na období 2021 - 2023</a><br /></td></tr></table><table><tr><td>10.12.2019</td><td><a href="/admin/files/ModuleUsneseni/2335-sekretariat-celadna.pdf">Schválený rozpočet Zájmového sdružení Frýdlantsko-Beskydy na rok 2020 a Schválený střednědobý výhled na rok 2021 a 2022</a><br /></td></tr></table><table><tr><td>10.12.2019</td><td><a href="/admin/files/ModuleUsneseni/2313-vv-opatreni-obecne-povahy-lesy-ze-dne-10.pdf">Veřejná vyhláška - opatření obecné povahy - změna okolností při vývoji kalamitního poškození lesů</a><br /><a href="/admin/files/ModuleUsneseni/2314-verejna-vyhlaska-c.pdf">příloha č. 1</a><br /></td></tr></table><table><tr><td>05.12.2019</td><td><a href="/admin/files/ModuleUsneseni/2311-sekretariat-celadna.pdf">Oznámení o vyhlášení prodeje nemovité věci prostřednictvím elektronického aukčního systému - pozemková parcela 535/17 Čeladná</a><br /></td></tr></table><table><tr><td>28.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2301-sekretariat-celadna.pdf">Oznámení o svolání veřejného zastupitelstva obce Čeladná č. 6 na 12. 12. 2019</a><br /></td></tr></table><table><tr><td>26.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2300-sekretariat-celadna.pdf">Zveřejnění ceny stočného v obci Čeladná na rok 2020</a><br /></td></tr></table><table><tr><td>27.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2299-sekretariat-celadna.pdf">Oznámení o změně ceny vodného od 1. 1. 2020</a><br /></td></tr></table><table><tr><td>27.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2298-deset-duvodu-proc-rici.pdf">Deset důvodů, proč říci jasné "NE" novému stavebnímu zákonu</a><br /></td></tr></table><table><tr><td>25.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2296-navrh-rozpoctu-obce-celadna-2020-dle-rozhodnuti-rady-c.pdf">Návrh rozpočtu Obce Čeladná na rok 2020 - dle usnesení rady Obce Čeladná č. 16 ze dne 25. 11. 2019</a><br /></td></tr></table><table><tr><td>21.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2293-praseci-mor.pdf">Upozornění Krajské veterinární správy MSK v souvislosti se šířením afrického moru prasat v Polsku</a><br /></td></tr></table><table><tr><td>19.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2292-vv-brno.pdf">Veřejná vyhláška - zpřístupnění hromadného seznamu, jímž se stanovuje poplatek za odpad v r. 2018, Brno</a><br /></td></tr></table><table><tr><td>15.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2284-sekretariat-celadna.pdf">Výkaz pro hodnocení plnění rozpočtu sestavený k 10/2019, Zájmového sdružení Frýdlantsko-Beskydy</a><br /></td></tr></table><table><tr><td>15.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2283-sekretariat-celadna.pdf">Návrh rozpočtu Zájmového sdružení Frýdlantsko-Beskydy na rok 2020 a Návrh střednědobého výhledu na rok 2021, 2022</a><br /></td></tr></table><table><tr><td>14.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2286-navrh-strednedobeho-vyhledu-rozpoctu-obce-2021-2023.pdf">Návrh střednědobého výhledu rozpočtu Obce Čeladná na období 2021-2023</a><br /></td></tr></table><table><tr><td>14.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2290-navrh-rozpoctu-obce-celadna-2020.pdf">Návrh rozpočtu Obce Čeladná na rok 2020</a><br /></td></tr></table><table><tr><td>11.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2277-zastupitelstvo-c.pdf">Oznámení o svolání veřejného zastupitelstva obce Čeladná č. 5 na 21. 11. 2019</a><br /></td></tr></table><table><tr><td>08.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2275-policejni-pohadky-ve-skolach.pdf">"Policejní pohádky ve školách..."</a><br /></td></tr></table><table><tr><td>06.11.2019</td><td><a href="/admin/files/ModuleUsneseni/2274-vyberove-rizeni-baska.pdf">Obec Baška - výběrová řízení č. 3/2019 a 4/2019</a><br /></td></tr></table><table><tr><td>16.10.2019</td><td><a href="/admin/files/ModuleUsneseni/2270-vv-zmena-stavby-pred-dokoncenim-.pdf">Veřejná vyhláška - rozhodnutí - povolení změny stavby před jejím dokončením - "Bobová dráha Čeladná"</a><br /></td></tr></table><table><tr><td>24.09.2019</td><td><a href="/admin/files/ModuleUsneseni/2268-rozpoctovky-c.pdf">Rozpočtová opatření č. 6 sestavená k 30. 8. 2019</a><br /></td></tr></table><table><tr><td>14.10.2019</td><td><a href="/admin/files/ModuleUsneseni/2265-vv-rozhodnuti-rys-medved-14.pdf">Veřejná vyhláška - rozhodnutí o povolení výjimky ze základních podmínek ochrany - rys ostrovid, medvěd hnědý</a><br /></td></tr></table><table><tr><td>09.10.2019</td><td><a href="/admin/files/ModuleUsneseni/2262-cesko-slovensky-poradensky-den-21.pdf">Česko-slovenský poradenský den 21. 11. 2019</a><br /></td></tr></table><table><tr><td>04.10.2019</td><td><a href="/admin/files/ModuleUsneseni/2260-senior-tax1.pdf">Senior taxi Frýdlant n. O. - výluka z důvodu čerpání dovolené ve dnech 29. - 30. 10. 2019</a><br /></td></tr></table><table><tr><td>23.09.2019</td><td><a href="/admin/files/ModuleUsneseni/2255-vv-zahajeni-spravniho-rizeni-medved-rys.pdf">Veřejná vyhláška - oznámení zahájení správního řízení, povolení výjimky - medvěd hnědý, rys ostrovid</a><br /></td></tr></table><table><tr><td>19.09.2019</td><td><a href="/admin/files/ModuleUsneseni/2254-nejkrasnejsi-nadrazi.pdf">Nejkrásnější nádraží ČR 2019</a><br /></td></tr></table><table><tr><td>18.09.2019</td><td><a href="/admin/files/ModuleUsneseni/2252-odstraneni-stromovi-18.pdf">Upozornění k odstranění a okleštění stromoví a jiných porostů</a><br /></td></tr></table><table><tr><td>16.09.2019</td><td><a href="/admin/files/ModuleUsneseni/2248-zastupitelstvo-c.pdf">Oznámení o svolání veřejného zastupitelstva obce Čeladná č. 4 na 26. 9. 2019</a><br /></td></tr></table><table><tr><td>04.09.2019</td><td><a href="/admin/files/ModuleUsneseni/2245-den-socialnich-sluzeb-12.pdf">Den sociálních služeb 12. 9. 2019</a><br /></td></tr></table><table><tr><td>03.09.2019</td><td><a href="/admin/files/ModuleUsneseni/2244-zruseni-drazby-sterba.pdf">Usnesení - zrušení el. dražby dne 4. 9. 2019, Štěrba, Štěrbová</a><br /></td></tr></table><table><tr><td>03.09.2019</td><td><a href="/admin/files/ModuleUsneseni/2243-vv-oznameni-zahajeni-rizeni-o-zmene-stavby-pred-jejim-dokoncenim-bobovka.pdf">Veřejná vyhláška - oznámení zahájení řízení o změně stavby před jejím dokončením, oznámení o možnosti seznámit se s podklady rozhodnutí, "Bobová dráha Čeladná"</a><br /></td></tr></table><table><tr><td>03.09.2019</td><td><a href="/admin/files/ModuleUsneseni/2242-den-pestounstvi-v-msk.pdf">"Den pěstounství" v Moravskoslezském kraji</a><br /></td></tr></table><table><tr><td>02.09.2019</td><td><a href="/admin/files/ModuleUsneseni/2241-vv-lesy-2.pdf">Veřejná vyhláška, opatření obecné povahy - lesy na území České republiky, změna a doplnění opatření Ministerstva zemědělství ze dne 3. 4. 2019</a><br /></td></tr></table><table><tr><td>28.08.2019</td><td><a href="/admin/files/ModuleUsneseni/2234-seznam-nemovitosti-28.pdf">Zaslání seznamu nemovitých věcí podle § 65 zákona 256/2012 Sb., o katastru nemovitostí ke zveřejnění, 28. 8. 2019</a><br /></td></tr></table><table><tr><td>16.08.2019</td><td><a href="/admin/files/ModuleUsneseni/2233-vv-bike-celadna-2019.pdf">Veřejná vyhláška - přechodná úprava provozu dne 24. 8. 2019, "BIKE ČELADNÁ"</a><br /></td></tr></table><table><tr><td>14.08.2019</td><td><a href="/admin/files/ModuleUsneseni/2232-cyklisticky-zavod.pdf">"Czech Cycling Tour"</a><br /></td></tr></table><table><tr><td>14.08.2019</td><td><a href="/admin/files/ModuleUsneseni/2231-vyluka-na-trati-17.pdf">Výluka na vlakové trati ve dnech 17. - 29. 8. 2019</a><br /></td></tr></table><table><tr><td>08.08.2019</td><td><a href="/admin/files/ModuleUsneseni/2230-sekretariat-celadna.pdf">Veřejná vyhláška - zpřístupnění hromadného předpisného seznamu, v němž je stanoven poplatek za komunální odpad za období 1. 1. - 31. 12. 2017, Brno</a><br /></td></tr></table><table><tr><td>07.08.2019</td><td><a href="/admin/files/ModuleUsneseni/2229-konkurs-vysni-lhoty.pdf">Konkursní řízení na ředitele/ředitelku MŠ Vyšní Lhoty</a><br /></td></tr></table><table><tr><td>30.07.2019</td><td><a href="/admin/files/ModuleUsneseni/2227-vv-prechodna-uprava-provozu-chodnik.pdf">Veřejná vyhláška, stanovení přechodné úpravy provozu - Chodník podél silnice III/48312, Čeladná směr Podolánky 5. 8 - 30. 10. 2019</a><br /></td></tr></table><table><tr><td>29.07.2019</td><td><a href="/admin/files/ModuleUsneseni/2226-elektronicka-drazba-sterba.pdf">Elektronická dražba Radek Štěrba</a><br /></td></tr></table><table><tr><td>18.07.2019</td><td><a href="/admin/files/ModuleUsneseni/2224-vv-ropzhodnuti-medved-hnedy.pdf">Veřejná vyhláška - rozhodnutí - povolení výjimky ze zákazu odchytu - medvěd hnědý</a><br /></td></tr></table><table><tr><td>18.07.2019</td><td><a href="/admin/files/ModuleUsneseni/2223-vv-prechodna-uprava-provozu-7-2019.pdf">Veřejná vyhláška - stanovení přechodné úpravy provozu v obci Čeladná, na místní komunikaci ev. č. 33b, pozemek p. č. 2965/1</a><br /></td></tr></table><table><tr><td>03.07.2019</td><td><a href="/admin/files/ModuleUsneseni/2217-mikroregion-rozpoctovky-c.pdf">Zájmové sdružení Frýdlantsko-Beskydy, rozpočtové opatření č. 2</a><br /></td></tr></table><table><tr><td>03.07.2019</td><td><a href="/admin/files/ModuleUsneseni/2216-drazba-sterbova.pdf">Usnesení o elektronické dražbě, Věra Štěrbová</a><br /></td></tr></table><table><tr><td>02.07.2019</td><td><a href="/admin/files/ModuleUsneseni/2215-verejna-vyhlaska-prechodna-uprava-provozu-oprava-odvodnovacich-zlabu-zel.pdf">Veřejná vyhláška - stanovení přechodné úpravy provozu - "Oprava odvodňovacích žlabů žel. přejezdu č. P7367" na silnici č. II/483</a><br /></td></tr></table><table><tr><td>01.07.2019</td><td><a href="/admin/files/ModuleUsneseni/2214-bezpecne-proziti-leta-hzs-msk.pdf">Bezpečné léto - Hasičský záchranný sbor MSK</a><br /></td></tr></table><table><tr><td>20.06.2019</td><td><a href="/admin/files/ModuleUsneseni/2210-vv-ladna-celadna-2019.pdf">Veřejná vyhláška - opatření obecné povahy - stanovení přechodné úpravy provozu - "Ladná Čeladná 2019"</a><br /></td></tr></table><table><tr><td>19.06.2019</td><td><a href="/admin/files/ModuleUsneseni/2209-vyberove-rizeni-baska.pdf">Výběrové řízení č. 2, vedoucí odboru služeb, Obec Baška</a><br /></td></tr></table><table><tr><td>17.06.2019</td><td><a href="/admin/files/ModuleUsneseni/2221-rozpoctovky-5.pdf">Rozpočtová opatření č. 5 sestavená k 10. 6. 2019</a><br /></td></tr></table><table><tr><td>17.06.2019</td><td><a href="/admin/files/ModuleUsneseni/2205-den-pestounstvi-msk.pdf">"Den pěstounství MSK"</a><br /></td></tr></table><table><tr><td>17.06.2019</td><td><a href="/admin/files/ModuleUsneseni/2204-rodinne-pasy.pdf">Rodinné pasy</a><br /></td></tr></table><table><tr><td>12.06.2019</td><td><a href="/admin/files/ModuleUsneseni/2201-vyluka-na-trati-dne-13.pdf">Výluka na trati ve dnech 13. - 18. 6. 2019</a><br /></td></tr></table><table><tr><td>11.06.2019</td><td><a href="/admin/files/ModuleUsneseni/2200-zastupitelstvo-cerven-2019.pdf">Oznámení o svolání zastupitelstva na 20. 6. 2019</a><br /></td></tr></table><table><tr><td>10.06.2019</td><td><a href="/admin/files/ModuleUsneseni/2197-bezpecne-koupani-a-navstevy-festivalu.pdf">Moravskoslezský kraj - bezpečné koupání a návštěvy festivalů</a><br /></td></tr></table><table><tr><td>06.06.2019</td><td><a href="/admin/files/ModuleUsneseni/2196-odstavka-elektriny-ve-dnech-18.pdf">Odstávka elektřiny ve dnech 18. a 24. 6. 2019</a><br /></td></tr></table><table><tr><td>05.06.2019</td><td><a href="/admin/files/ModuleUsneseni/2195-sekretariat-celadna.pdf">Veřejná vyhláška - oznámení o projednávání návrhu změny č. 1A ÚP Čeladná a vyhodnocení jeho vlivů na udržitelný rozvoj území</a><br /></td></tr></table><table><tr><td>30.05.2019</td><td><a href="/admin/files/ModuleUsneseni/2024-senior-taxi-cerpani-dovolene-ve-dnech-1.pdf">Senior taxi Frýdlant n. O. - výluka z důvodu čerpání dovolené ve dnech 1. - 14. 7. 2019</a><br /></td></tr></table><table><tr><td>30.05.2019</td><td><a href="/admin/files/ModuleUsneseni/2022-vyluka-na-trati-dne-3.pdf">Výluka na trati dne 3. a 4. 6. 2019</a><br /></td></tr></table><table><tr><td>28.05.2019</td><td><a href="/admin/files/ModuleUsneseni/2019-uzavreni-posty-celadna-dne-7.pdf">Uzavření pošty Čeladná dne 7. 6. 2019</a><br /></td></tr></table><table><tr><td>24.05.2019</td><td><a href="/admin/files/ModuleUsneseni/2017-odstavka-vody-dne-10.pdf">Odstávka vody dne 10. 6. 2019</a><br /></td></tr></table><table><tr><td>23.05.2019</td><td><a href="/admin/files/ModuleUsneseni/2016-vystraha-predpovedni-povodnove-sluzby-chmu-23.pdf">Výstraha předpovědní povodňové služby ČHMÚ 23. 5. 2019</a><br /></td></tr></table><table><tr><td>20.05.2019</td><td><a href="/admin/files/ModuleUsneseni/2012-capi-den.pdf">Čapí den v Čeladné</a><br /></td></tr></table><table><tr><td>20.05.2019</td><td><a href="/admin/files/ModuleUsneseni/2010-odstavka-elektriny-dne-7.pdf">Odstávka elektřiny dne 7. 6. 2019</a><br /></td></tr></table><table><tr><td>09.05.2019</td><td><a href="/admin/files/ModuleUsneseni/2006-sekretariat-celadna.pdf">Oznámení o době a místě konání voleb do Evropského parlamentu ve dnech 24. a 25. 5. 2019</a><br /></td></tr></table><table><tr><td>06.05.2019</td><td><a href="/admin/files/ModuleUsneseni/2004-schvaleny-zav.pdf">Zájmové sdružení Frýdlantsko-Beskydy - schválený závěrečný účet na rok 2018</a><br /></td></tr></table><table><tr><td>02.05.2019</td><td><a href="/admin/files/ModuleUsneseni/2001-financni-sprava.pdf">Finanční správa - informace o platbě daně z nemovitosti prostřednictvím SIPO</a><br /></td></tr></table><table><tr><td>30.04.2019</td><td><a href="/admin/files/ModuleUsneseni/2000-zamer-obce-pronajem-pozemku.pdf">Záměr obce - pronájem pozemků v k. ú. Čeladná</a><br /></td></tr></table><table><tr><td>29.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1999-porovnani-vsech-polozek-vypoctu-cen-pro-vodne-a-stocne-za-rok-2018.pdf">Porovnání všech položek výpočtu cen pro vodné a stočné za rok 2018</a><br /></td></tr></table><table><tr><td>29.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1998-vyluka-na-trati-ve-dnech-2.pdf">Výluka na trati ve dnech 2. - 13. 5. 2019</a><br /></td></tr></table><table><tr><td>23.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1997-verejna-vyhlaska-zpristupneni-hromadneho-predpisneho-seznamu-dane-z-namovitosti-na-rok-2019.pdf">Veřejná vyhláška - zpřístupnění hromadného předpisného seznamu Daně z nemovitostí na rok 2019</a><br /></td></tr></table><table><tr><td>23.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1996-letak-na-sm-kraj.jpg">Cesty vítězství 2019</a><br /></td></tr></table><table><tr><td>17.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1995-vv-medved.pdf">Veřejná vyhláška - oznámení o zahájení řízení ve věci povolení výjimky z ochranných podmínek druhů živočichů - medvěda hnědého</a><br /></td></tr></table><table><tr><td>16.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1994-verejna-vyhlaska-prechodna-uprava-provozu-na-silnicich-ii.pdf">Veřejná vyhláška - opatření obecné povahy, stanovení přechodné úpravy provozu na silnicích II. a III. třídy v působnosti MÚ Frýdlant n. Ostravicí</a><br /></td></tr></table><table><tr><td>12.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1989-slovensko-cesky-poradensky-den.pdf">Slovensko-český poradenský den 25. 4. 2019</a><br /></td></tr></table><table><tr><td>09.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1987-seznam-nemovitych-veci-ke-zverejneni.pdf">Zaslání seznamu nemovitých věcí podle § 65 zákona 256/2013 Sb., o katastru nemovitostí ke zveřejnění</a><br /></td></tr></table><table><tr><td>09.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1985-okrsky.pdf">Seznam domů zařazených do volebních okrsků č. 1, č. 2, č. 3, č. 4</a><br /></td></tr></table><table><tr><td>09.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1983-informace-o-sidle-a-poctu-volebnich-okrsku.pdf">Informace o počtu a sídlech volebních okrsků pro volby do Evropského parlamentu ve dnech 24. a 25. 5. 2019</a><br /></td></tr></table><table><tr><td>04.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1970-pronajem-kavarny.pdf">Záměr obce, pronájem nebytových prostor - provozovny kavárny v č. p. 1</a><br /></td></tr></table><table><tr><td>04.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1968-vv-stanoveni-prechodne-upravy-provozu-fr.pdf">Veřejná vyhláška - stanovení přechodné úpravy provozu ve Fr. n. O, Nová Dědina, ul Frenštátská 20. 4. - 15. 11. 2019</a><br /></td></tr></table><table><tr><td>04.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1967-verejna-vyhlaska-opatreni-obecne-povahy-lesy-na-uzemi-cr.pdf">Veřejná vyhláška, opatření obecné povahy - lesy na území České republiky</a><br /></td></tr></table><table><tr><td>04.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1966-navrh-zav.pdf">Návrh závěrečného účtu Zájmového sdružení Frýdlantsko-Beskydy na rok 2018</a><br /></td></tr></table><table><tr><td>03.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1965-vyluka.pdf">Výluka na trati ve dnech 8. - 17. 4. 2019</a><br /></td></tr></table><table><tr><td>02.04.2019</td><td><a href="/admin/files/ModuleUsneseni/1964-sekretariat-celadna.pdf">Záměr obce, pronájem pozemků parc. č. 2793 a 2794/2, Čeladná - Podolánky</a><br /></td></tr></table><table><tr><td>28.03.2019</td><td><a href="/admin/files/ModuleUsneseni/1960-verejna-vyhlaska-provadeni-zememericskych-praci-ve-dnech-8.pdf">Veřejná vyhláška - provádění zeměměřičských prací ve dnech 8. 4. - 13. 12. 2019</a><br /></td></tr></table><table><tr><td>28.03.2019</td><td><a href="/admin/files/ModuleUsneseni/1959-sekretariat-celadna.pdf">Představení projektu FIRST RESPONDER</a><br /></td></tr></table><table><tr><td>25.03.2019</td><td><a href="/admin/files/ModuleUsneseni/1958-volebni-okrsky.pdf">Stanovení minimálního počtu členů okrskové volební komise</a><br /></td></tr></table><table><tr><td>19.03.2019</td><td><a href="/admin/files/ModuleUsneseni/1957-1063-nove-cesko-frydlant-let-a5-tisk.pdf">Protidrogový vlak ve Frýdlantu n. O. </a><br /></td></tr></table><table><tr><td>20.03.2019</td><td><a href="/admin/files/ModuleUsneseni/1956-volajici-vnuci.pdf">"Volající vnuci" - bezpečnostní upozornění pro seniory</a><br /></td></tr></table><table><tr><td>19.03.2019</td><td><a href="/admin/files/ModuleUsneseni/1955-odstavka-elektriny-dne-8.pdf">Odstávka elektřiny dne 8. 4. 2019</a><br /></td></tr></table><table><tr><td>15.03.2019</td><td><a href="/admin/files/ModuleUsneseni/1921-verejna-vyhlaska-opatreni-obecne-povahy-c.pdf">Veřejná vyhláška - opatření obecné povahy č. 2</a><br /></td></tr></table><table><tr><td>14.03.2019</td><td><a href="/admin/files/ModuleUsneseni/1920-1.pdf">Zájmové sdružení Frýdlantsko-Beskydy, 1. změna rozpočtu dle platné rozpočtové skladby - rozpočtové opatření</a><br /></td></tr></table><table><tr><td>11.03.2019</td><td><a href="/admin/files/ModuleUsneseni/1891-zaverecny-ucet-2018.pdf">Závěrečný účet 2018</a><br /></td></tr></table><table><tr><td>11.03.2019</td><td><a href="/admin/files/ModuleUsneseni/1890-zprava-o-vysledku-prezkoumani-hospodareni-2018.pdf">Zpráva o výsledku přezkoumání hospodaření za rok 2018</a><br /></td></tr></table><table><tr><td>11.03.2019</td><td><a href="/admin/files/ModuleUsneseni/1889-vyluka-na-trati-ve-dnech-14.pdf">Výluka na trati ve dnech 14. - 21. 3. 2019</a><br /></td></tr></table><table><tr><td>04.02.2019</td><td><a href="/admin/files/ModuleUsneseni/1951-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 1 sestavená k 20. 1. 2019</a><br /></td></tr></table><table><tr><td>01.03.2019</td><td><a href="/admin/files/ModuleUsneseni/1853-drazebni-vyhlaska-zdenek-filip-ruzicka.pdf">Dražební vyhláška - Zdeněk Filip Růžička</a><br /></td></tr></table><table><tr><td>28.02.2019</td><td><a href="/admin/files/ModuleUsneseni/1852-volne-pracovni-misto-skolnik-v-zs-celadna.pdf">Oznámení o volném pracovním místě - školník v ZŠ Čeladná</a><br /></td></tr></table><table><tr><td>15.03.2019</td><td><a href="/admin/files/ModuleUsneseni/1922-oznameni-svolani-zastupitelstva-obce-dne-28.pdf">Oznámení svolání zastupitelstva obce dne 28. 3. 2019</a><br /></td></tr></table><table><tr><td>24.01.2019</td><td><a href="/admin/files/ModuleUsneseni/1833-pribor.pdf">Oznámení o konání veřejného licitačního řízení - prodej pozemků Příbor</a><br /></td></tr></table><table><tr><td>27.02.2019</td><td><a href="/admin/files/ModuleUsneseni/1952-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 2 sestavená k 15. 2. 2019</a><br /></td></tr></table><table><tr><td>21.01.2019</td><td><a href="/admin/files/ModuleUsneseni/1832-vyzva-ze-dne-17.pdf">Výzva o návrhu na zrušení části opatření obecné povahy č. 1/2018 - změny č. 1B Územního plánu Čeladná</a><br /></td></tr></table><table><tr><td>08.01.2019</td><td><a href="/admin/files/ModuleUsneseni/1819-sekretariat-celadna.pdf">Finanční správa - oznámení lhůty pro podání daňového přiznání k dani z nemovitosti za rok 2019</a><br /></td></tr></table><table><tr><td>02.01.2019</td><td><a href="/admin/files/ModuleUsneseni/1831-rozpoctova-opatreni-9.pdf">Rozpočtová opatření č. 9 sestavená k 17. 12. 2018</a><br /></td></tr></table><table><tr><td>04.01.2019</td><td><a href="/admin/files/ModuleUsneseni/1813-stale-hledame-pestouny.pdf">Stále hledáme pěstouny</a><br /></td></tr></table><table><tr><td>02.01.2019</td><td><a href="/admin/files/ModuleUsneseni/1809-rozpocet-2019.pdf">Schválený rozpočet Zájmového sdružení Frýdlantsko-Beskydy na rok 2019</a><br /></td></tr></table><table><tr><td>02.01.2019</td><td><a href="/admin/files/ModuleUsneseni/1810-rozpoctova-opatreni-c.pdf">Schválená rozpočtová změna č. 4 Zájmového sdružení Frýdlantsko-Beskydy ze dne 11. 12. 2018</a><br /></td></tr></table><table><tr><td>02.01.2019</td><td><a href="/admin/files/ModuleUsneseni/1811-schvaleny-strednedoby-vyhled-na-rok-2020.pdf">Schválený střednědobý výhled rozpočtu Zájmového sdružení Frýdlantsko-Beskydy na rok 2020</a><br /></td></tr></table><table><tr><td>02.01.2019</td><td><a href="/admin/files/ModuleUsneseni/1814-schvaleny-strednedoby-vyhled-na-rok-2021.pdf">Schválený střednědobý výhled rozpočtu Zájmového sdružení Frýdlantsko-Beskydy na rok 2021</a><br /></td></tr></table><table><tr><td>02.01.2019</td><td><a href="/admin/files/ModuleUsneseni/1808-nabidka-prace.pdf">Nabídka práce</a><br /></td></tr></table><table><tr><td>16.01.2019</td><td><a href="/admin/files/ModuleUsneseni/1827-broz.pdf">Ztracená brož</a><br /></td></tr></table><table></table><ul><li class="pdf"><div class="text"><a onclick="return !bar(this.href);" href="/admin/files/ModuleText/2984-pracovni-doba-vanocni.pdf"><b>19. 1. - Žádost 1</b></a> - xxx</div></li></ul>				</div>
+				<div id="text-content-submenu">
+					<ul>
+						<li><a href="/fotogalerie">Fotogalerie</a></li>
+						<li><a href="/virtualni-prohlidka">Virtuální prohlídka</a></li>
+						<li><a href="/zpravodaj">Zpravodaj</a></li>
+					</ul>
+				</div>
+				<div id="fast-kontakt">
+					<h2><span class="bolder">Rychlý</span> kontakt</h2>
+					<ul>
+						<li> <img src="/img/mobile.png" />+420 558 684 008</li>
+						<li> <img src="/img/post.png" /><a href="mailto:celadna@iol.cz">celadna@iol.cz</a></li>
+						<li> <img src="/img/house.png" />Čeladná č.p. 1, 739 12 Čeladná</li>
+					</ul>
+          <div style="float:right; height:240px;"><iframe src="https://polar.cz/rss/celadna" scrolling="no" class="iframe-polar" style="border:none;" width="283" height="240"></iframe></div>
+          
+				</div>
+			</div>
+			<div id="footer-block">
+	<ul>
+		<li><a href="/">O obci</a></li>
+		<li><a href="/obecni-urad">Obecní úřad</a></li>
+	</ul>
+	<ul>
+		<li><a href="/samosprava">Samospráva</a></li>
+		<li><a href="/obecni-organizace">Obecní organizace</a></li>	
+	</ul>
+	<ul>
+		<li><a href="/organizace">Organizace</a></li>
+		<li><a href="/fotogalerie">Fotogalerie</a></li>
+	</ul>
+	<ul>
+		<li><a href="/virtualni-prohlidka">Virtuální prohlídka</a></li>
+		<li><a href="/zpravodaj">Zpravodaj</a></li>
+	</ul>
+	<ul>
+		<li><a href="/podminky-uziti">Podmínky užití</a></li>
+		<li><a href="/mapa-stranek">Mapa stránek</a></li>
+	</ul>
+  
+  <a class="senior-taxi" href="/senior-taxi"><img src="/images/senioracek.png" alt="Senior Taxi"></a>
+  
+	<div id="footer-right-col">
+		<p>Copyright © 2014 Čeladná
+		Všechna práva vyhrazena.
+		</p>
+		<p>Webdesign a programování 
+		Netsimple Conspiracy s.r.o.
+		</p>
+		<a href="http://www.netsimple.cz" title="Netsimple - Tvorba webových stránek a aplikací"><img src="/img/netsimple-logo.png" /></a>
+	</div>
+  <div id="app">
+    <span class="label">Aplikace Obec Čeladná ke stažení zdarma</span>
+    <a href="https://play.google.com/store/apps/details?id=cz.tripon.obecceladna" onclick="return !bar(this.href)"><img src="/images/google.png" /></a>
+    <a href="https://itunes.apple.com/us/app/obec-celadna/id1102072135?l=cs&ls=1&mt=8" onclick="return !bar(this.href)"><img src="/images/apple.png" /></a>
+  </div>
+</div>
+
+<div class="cezFrame">
+  <a href="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/redirect"><img src="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/b/728" alt="ČEZ Distribuce – Plánované odstávky" width="728" height="90"></a>
+</div>		</div>
+	</div>
+  
+  <div id="notifee-dialog-wrapper"></div>
+  <div id="notifee-icon-wrapper"></div>
+  <div id="notifee-banner-wrapper"></div>
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-messaging.js"></script>
+  <script src="/js/notifee.js"></script>
+  <script>
+  Notifee.init("https://" + window.location.host, true);
+  </script>
+</body>
+
+</html>

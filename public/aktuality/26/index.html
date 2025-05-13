@@ -1,0 +1,212 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs">
+<head>
+	<meta http-equiv="Content-Language" content="cs" />
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+	<meta name="description" content="Obec Čeladná"/>
+	<meta name="keywords" content="Obec Čeladná" />
+	<meta name="author" content="Netsimple Conspiracy s.r.o." />
+	<meta name="copyright" content="Čeladná" />
+	<meta name="robots" content="all,follow" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<link href="/css/stylesheet.css?reload=1709538242" rel="stylesheet" type="text/css" />
+	<link href="/css/form.css" rel="stylesheet" type="text/css" />
+	<link href="/css/downloads.css" rel="stylesheet" type="text/css" />
+	<link href="/css/gallery.css" rel="stylesheet" type="text/css" />
+	<link href="/admin/css/stylesheet_tinymce.css" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/notifee.css" type="text/css"/>
+  <script type="text/javascript" src="/jquery/jquery-1.7.2.min.js"></script>
+
+<!-- PopUp - modal box -->
+<link href="/css/reveal.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="/jquery/jquery.reveal.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="/js/scripts.js"></script>  <link href="/jquery/stylesheet.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/jquery/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+
+
+// načtu obrázky
+    	menu_1 = new Image();
+    	menu_1.src="/bannery/'+banner_3.jpg+'";	
+        	menu_2 = new Image();
+    	menu_2.src="/bannery/'+banner_1.jpg+'";	
+        	menu_3 = new Image();
+    	menu_3.src="/bannery/'+banner_4.jpg+'";	
+        	menu_4 = new Image();
+    	menu_4.src="/bannery/'+banner_2.jpg+'";	
+    // END načtu obrázky
+
+
+$(document).ready(function() 
+{
+	var autoPlayTime=5000;
+	autoPlayTimer = setInterval( autoPlay, autoPlayTime);
+	function autoPlay(){
+		Slidebox('next');
+	}
+	$('#slidebox .next').click(function () {
+		Slidebox('next','stop');
+	});
+	$('#slidebox .previous').click(function () {
+		Slidebox('previous','stop');
+	});
+	var yPosition=($('#slidebox').height()-$('#slidebox .next').height())/2;
+	$('#slidebox .next').css('top',yPosition);
+	$('#slidebox .previous').css('top',yPosition);
+	$('#slidebox .thumbs a:first-child').removeClass('thumb').addClass('selected_thumb');
+	$("#slidebox .content").each(function(i){
+		slideboxTotalContent=i*$('#slidebox').width();	
+		$('#slidebox .container').css("width",slideboxTotalContent+$('#slidebox').width());
+	});
+});
+
+function Slidebox(slideTo,autoPlay){
+    var animSpeed=1500; //animation speed
+    var easeType='easeInOutExpo'; //easing type
+	var sliderWidth=$('#slidebox').width();
+	var leftPosition=$('#slidebox .container').css("left").replace("px", "");
+	if( !$("#slidebox .container").is(":animated")){
+		if(slideTo=='next'){ //next
+			if(autoPlay=='stop'){
+				clearInterval(autoPlayTimer);
+			}
+			if(leftPosition==-slideboxTotalContent){
+				$('#slidebox .container').animate({left: 0}, animSpeed, easeType); //reset
+				$('#slidebox .thumbs a:first-child').removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs a:last-child').removeClass('selected_thumb').addClass('thumb');
+			} else {
+				$('#slidebox .container').animate({left: '-='+sliderWidth}, animSpeed, easeType); //next
+				$('#slidebox .thumbs .selected_thumb').next().removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs .selected_thumb').prev().removeClass('selected_thumb').addClass('thumb');
+			}
+		} else if(slideTo=='previous'){ //previous
+			if(autoPlay=='stop'){
+				clearInterval(autoPlayTimer);
+			}
+			if(leftPosition=='0'){
+				$('#slidebox .container').animate({left: '-'+slideboxTotalContent}, animSpeed, easeType); //reset
+				$('#slidebox .thumbs a:last-child').removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs a:first-child').removeClass('selected_thumb').addClass('thumb');
+			} else {
+				$('#slidebox .container').animate({left: '+='+sliderWidth}, animSpeed, easeType); //previous
+				$('#slidebox .thumbs .selected_thumb').prev().removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs .selected_thumb').next().removeClass('selected_thumb').addClass('thumb');
+			}
+		} else {
+			var slide2=(slideTo-1)*sliderWidth;
+			if(leftPosition!=-slide2){
+				clearInterval(autoPlayTimer);
+				$('#slidebox .container').animate({left: -slide2}, animSpeed, easeType); //go to number
+				$('#slidebox .thumbs .selected_thumb').removeClass('selected_thumb').addClass('thumb');
+				var selThumb=$('#slidebox .thumbs a').eq((slideTo-1));
+				selThumb.removeClass('thumb').addClass('selected_thumb');
+			}
+		}
+	}
+}
+</script><link rel="stylesheet" href="/jquery/lightbox/css/lightbox.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="/jquery/lightbox/js/jquery-ui-1.8.18.custom.min.js"></script>
+<script type="text/javascript" src="/jquery/lightbox/js/jquery.smooth-scroll.min.js"></script>
+<script type="text/javascript" src="/jquery/lightbox/js/lightbox.js"></script>	<title>Obec Čeladná - Obec Čeladná</title>
+</head>
+
+<body>
+	<div id="block-top">
+		<div class="wrapper">
+		<div id="logo">
+			<h1 class="hidden">Obec Čeladná</h1>
+			<a href="/"><img src="/img/logo.png" /></a>
+		</div>
+		<ul><li><a href="/">O obci</a><ul class="submenu"><li><a href="/historie" title="Historie">Historie</a></li><li><a href="/soucasnost" title="Současnost">Současnost</a></li><li><a href="/zajimavosti" title="Zajímavosti">Zajímavosti</a></li><li><a href="/sluzby" title="Služby">Služby</a></li><li><a href="/ubytovani" title="Ubytování">Ubytování</a></li><li><a href="/stravovani" title="Stravování">Stravování</a></li><li><a href="/povodnovy-plan" title="Povodňový plán">Povodňový plán</a></li></ul></li><li><a href="/obecni-urad">Obecní úřad</a><ul class="submenu"><li><a href="/obecni-urad/kontakty" title="Kontakty">Kontakty</a></li><li><a href="/obecni-urad/pronajem-hotelu-prosper" title="Pronájem hotelu Prosper">Pronájem hotelu Prosper</a></li><li><a href="/obecni-urad/koronavirus-covid-19" title="Koronavirus COVID-19">Koronavirus COVID-19</a></li><li><a href="/obecni-urad/struktura-uradu" title="Struktura úřadu">Struktura úřadu</a></li><li><a href="/obecni-urad/uredni-deska" title="Úřední deska">Úřední deska</a></li><li><a href="/obecni-urad/verejnopravni-smlouvy" title="Veřejnoprávní smlouvy ">Veřejnoprávní smlouvy </a></li><li><a href="/obecni-urad/povinne-informace" title="Poskytnuté informace">Poskytnuté informace</a></li><li><a href="/obecni-urad/rozpocet-a-vz" title="Rozpočet a VZ">Rozpočet a VZ</a></li><li><a href="/obecni-urad/vyhlasky" title="Vyhlášky">Vyhlášky</a></li><li><a href="/obecni-urad/formulare" title="Formuláře">Formuláře</a></li><li><a href="/obecni-urad/odpady" title="Odpady">Odpady</a></li><li><a href="/obecni-urad/ochrana-osobnich-udaju" title="Ochrana osobních údajů">Ochrana osobních údajů</a></li><li><a href="/obecni-urad/navody" title="Návody">Návody</a></li><li><a href="/obecni-urad/zivotni-situace" title="Životní situace">Životní situace</a></li><li><a href="/obecni-urad/uzemni-plan" title="Územní plán">Územní plán</a></li><li><a href="/obecni-urad/strategicky-rozvojovy-dokument-obce-celadna-2015-2020" title="Strategický rozvojový dokument obce Čeladná 2021 - 2030">Strategický rozvojový dokument obce Čeladná 2021 - 2030</a></li><li><a href="/obecni-urad/uzemni-studie-z21" title="Územní studie Z21">Územní studie Z21</a></li><li><a href="/obecni-urad/uzemni-studie-z61" title="Územní studie Z61">Územní studie Z61</a></li><li><a href="/obecni-urad/uzemni-studie-z113" title="Územní studie Z113">Územní studie Z113</a></li><li><a href="/obecni-urad/uzemni-studie-z112" title="Územní studie  Z112">Územní studie  Z112</a></li><li><a href="/obecni-urad/uzemni-studie-z69-lokalita-velke-brehy" title="Územní studie Z69">Územní studie Z69</a></li><li><a href="/obecni-urad/uzemni-studie-z27" title="Územní studie Z27">Územní studie Z27</a></li><li><a href="/obecni-urad/uzemni-studie-z24" title="Územní studie Z24">Územní studie Z24</a></li><li><a href="/obecni-urad/uzemni-studie-z57" title="Územní studie Z57">Územní studie Z57</a></li><li><a href="/obecni-urad/uzemni-studie-z48" title="Územní studie Z48">Územní studie Z48</a></li><li><a href="/obecni-urad/uzemni-studie-z35" title="Územní studie Z35">Územní studie Z35</a></li><li><a href="/obecni-urad/uzemni-studie-z62" title="Územní studie Z62">Územní studie Z62</a></li><li><a href="/obecni-urad/uzemni-studie-z106" title="Územní studie Z106">Územní studie Z106</a></li></ul></li><li><a href="/samosprava">Samospráva</a><ul class="submenu"><li><a href="/samosprava/vedeni-obce" title="Vedení obce">Vedení obce</a></li><li><a href="/samosprava/rada-obce" title="Rada obce">Rada obce</a></li><li><a href="/samosprava/zastupitelstvo" title="Zastupitelstvo">Zastupitelstvo</a></li><li><a href="/samosprava/stret-zajmu" title="Střet zájmů">Střet zájmů</a></li><li><a href="/samosprava/financni-vybor" title="Finanční výbor">Finanční výbor</a></li><li><a href="/samosprava/kulturni-komise" title="Kulturní komise">Kulturní komise</a></li><li><a href="/samosprava/kontrolni-vybor" title="Kontrolní výbor">Kontrolní výbor</a></li><li><a href="/samosprava/komise-pro-zivotni-prostredi" title="Komise pro životní prostředí">Komise pro životní prostředí</a></li><li><a href="/samosprava/komise-pro-obcanske-zalezitosti" title="Komise pro občanské záležitosti">Komise pro občanské záležitosti</a></li><li><a href="/samosprava/volby-2021" title="Volby 2021">Volby 2021</a></li><li><a href="/samosprava/volby-2020" title="Volby 2020">Volby 2020</a></li><li><a href="/samosprava/volby-ep-2019" title="Volby EP 2019">Volby EP 2019</a></li><li><a href="/samosprava/volby-do-zast-2018" title="Volby do zast. 2018">Volby do zast. 2018</a></li><li><a href="/samosprava/volba-prezidenta" title="Volba prezidenta">Volba prezidenta</a></li><li><a href="/samosprava/volby-2017" title="Volby 2017">Volby 2017</a></li></ul></li><li><a href="/obecni-organizace">Obecní organizace</a><ul class="submenu"><li><a href="/obecni-organizace/ms" title="MŠ">MŠ</a></li><li><a href="/obecni-organizace/ms-beruska" title="Mateřská škola Čeladenská beruška">Mateřská škola Čeladenská beruška</a></li><li><a href="/obecni-organizace/zs" title="ZŠ">ZŠ</a></li><li><a href="/obecni-organizace/knihovna-a-ic" title="Knihovna a IC">Knihovna a IC</a></li><li><a href="/obecni-organizace/pamatnik-j-kaluse" title="Památník J. Kaluse">Památník J. Kaluse</a></li></ul></li><li><a href="/organizace">Organizace</a><ul class="submenu"><li><a href="/organizace/sbor-dobrovolnych-hasicu" title="Sbor dobrovolných hasičů">Sbor dobrovolných hasičů</a></li><li><a href="/organizace/farnost" title="Farnost">Farnost</a></li><li><a href="/organizace/detsky-domov" title="Dětský domov">Dětský domov</a></li><li><a href="http://edb.cz" title="Evropská databanka" target="_blank">Evropská databanka</a></li><li><a href="/organizace/sk-beskyd-celadna" title="SK Beskyd Čeladná">SK Beskyd Čeladná</a></li><li><a href=" http://www.policie.cz/SCRIPT/imapa.aspx?area=sm&docid=743&nid=276&num=2" title="Policie ČR" target="_blank">Policie ČR</a></li></ul></li></ul>	
+		</div>
+	</div>
+	<div id="main">
+		<div class="wrapper">
+			<div id="slideshow-block">
+				<div id="slidebox"><div class="next"> </div><div class="previous"> </div><div class="container"><div class="content"><div class="descriptBox"><h2>Nové centrum obce</h2><p>Před rokem 2000 stával na místě dnešního náměstí jen zchátralý objekt bývalé textilní továrny, využívaný jako sklad armády.</p><a href="/nove-centrum-obce">Více info</a></div><div><img src="/bannery/banner_1.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Sportovní hala</h2><p>Výstavbu nových bytů doprovázely další investice. Obec otevřela novou školku, vybudovala fotbalové hřiště a víceúčelovou halu.</p><a href="/sportovni-hala">Více info</a></div><div><img src="/bannery/banner_2.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Beskydské rehabilitační centrum</h2><p>Čeladenské lázně, které zaměstnávají 240 většinou místních obyvatel, jsou chloubou obce. Léčí se v nich pacienti z celé republiky.</p><a href="/beskydske-rehabilitacni-centrum">Více info</a></div><div><img src="/bannery/banner_3.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Golfový areál</h2><p>Rozkvět obce souvisí se sportem gentlemanů. Hřiště evropských parametrů bylo otevřeno v roce 2001, kdy se golf začal stávat lidovou zábavou.</p><a href="/golfovy-areal">Více info</a></div><div><img src="/bannery/banner_4.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div></div><div class="thumbs"><a href="#" onClick="Slidebox('1');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('2');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('3');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('4');return false" class="thumb">&nbsp;</a></div></div>			</div>
+			<div id="text-block">
+				<div id="drobeckova-navigace"><a href="/">Úvodní stránka</a> &gt;&gt; <a href="/aktuality">Aktuality</a> &gt;&gt; </div>
+				<div id="text-content">
+					<a name="obsah" class="kotva"></a><h2></h2><div class="AktualityLine"><a href="/aktuality/letni-tanecni-workshop-pro-deti"><img src="/admin/upload/ModuleActuality/509_small.jpg"/></a><h3><a href="/aktuality/letni-tanecni-workshop-pro-deti">Letní taneční workshop pro děti</a></h3><h4></h4><p>V Čeladné se chystá "příměstský tábor" s tanečním programem, zábavou i vystoupením pro veřejnost. Podrobnosti o...<a href="/aktuality/letni-tanecni-workshop-pro-deti"><span class="moreInfo">více informací</span></a></div><div class="AktualityLine"><a href="/aktuality/myslivci-zvou-na-zverinove-hody-1"><img src="/admin/upload/ModuleActuality/511_small.jpg"/></a><h3><a href="/aktuality/myslivci-zvou-na-zverinove-hody-1">Myslivci zvou na zvěřinové hody</a></h3><h4></h4><p>Myslivecký spolek Čeladná zve veřejnost na tradiční zvěřinové hody, které se uskuteční v sobotu 6. 7. od 12 hodi...<a href="/aktuality/myslivci-zvou-na-zverinove-hody-1"><span class="moreInfo">více informací</span></a></div><div class="AktualityLine"><a href="/aktuality/ornitologove-zvou-na-capi-den-v-celadne"><img src="/admin/upload/ModuleActuality/503_small.jpg"/></a><h3><a href="/aktuality/ornitologove-zvou-na-capi-den-v-celadne">Ornitologové zvou na Čapí den v Čeladné</a></h3><h4></h4><p>Čápi z čeladenského komína se asi budou divit. Ve čtvrtek 6. června pořádá Česká ornitologická společnost na n...<a href="/aktuality/ornitologove-zvou-na-capi-den-v-celadne"><span class="moreInfo">více informací</span></a></div><div class="AktualityLine"><a href="/aktuality/kalendar-akci-v-celadne-na-cerven"><img src="/admin/upload/ModuleActuality/504_small.jpg"/></a><h3><a href="/aktuality/kalendar-akci-v-celadne-na-cerven">Kalendář akcí v Čeladné na červen</a></h3><h4></h4><p>Červen bude v Čeladné opět plný události - přehledně je všechny shrnula do tradičního kalendáře kulturní komis...<a href="/aktuality/kalendar-akci-v-celadne-na-cerven"><span class="moreInfo">více informací</span></a></div><div class="AktualityLine"><a href="/aktuality/cesky-rozhlas-ostrava-90-let-o-vas-pro-vas-a-s-vami"><img src="/admin/upload/ModuleActuality/505_small.jpg"/></a><h3><a href="/aktuality/cesky-rozhlas-ostrava-90-let-o-vas-pro-vas-a-s-vami">Český rozhlas Ostrava: 90 let o vás, pro vás a s vámi</a></h3><h4></h4><p>Do sítě Radiojournalu v tehdejším Československu se ostravská stanice připojila 1. července 1929. O její histori...<a href="/aktuality/cesky-rozhlas-ostrava-90-let-o-vas-pro-vas-a-s-vami"><span class="moreInfo">více informací</span></a></div><div id="paginator-list"><a href="/aktuality" class="">1</a><a href="/aktuality/1" class="">2</a><a href="/aktuality/2" class="">3</a><a href="/aktuality/3" class="">4</a><a href="/aktuality/4" class="">5</a><a href="/aktuality/5" class="">6</a><a href="/aktuality/6" class="">7</a><a href="/aktuality/7" class="">8</a><a href="/aktuality/8" class="">9</a><a href="/aktuality/9" class="">10</a><a href="/aktuality/10" class="">11</a><a href="/aktuality/11" class="">12</a><a href="/aktuality/12" class="">13</a><a href="/aktuality/13" class="">14</a><a href="/aktuality/14" class="">15</a><a href="/aktuality/15" class="">16</a><a href="/aktuality/16" class="">17</a><a href="/aktuality/17" class="">18</a><a href="/aktuality/18" class="">19</a><a href="/aktuality/19" class="">20</a><a href="/aktuality/20" class="">21</a><a href="/aktuality/21" class="">22</a><a href="/aktuality/22" class="">23</a><a href="/aktuality/23" class="">24</a><a href="/aktuality/24" class="">25</a><a href="/aktuality/25" class="">26</a><a href="/aktuality/26" class="on">27</a><a href="/aktuality/27" class="">28</a><a href="/aktuality/28" class="">29</a><a href="/aktuality/29" class="">30</a><a href="/aktuality/30" class="">31</a><a href="/aktuality/31" class="">32</a><a href="/aktuality/32" class="">33</a><a href="/aktuality/33" class="">34</a><a href="/aktuality/34" class="">35</a><a href="/aktuality/35" class="">36</a><a href="/aktuality/36" class="">37</a><a href="/aktuality/37" class="">38</a><a href="/aktuality/38" class="">39</a><a href="/aktuality/39" class="">40</a><a href="/aktuality/40" class="">41</a><a href="/aktuality/41" class="">42</a><a href="/aktuality/42" class="">43</a><a href="/aktuality/43" class="">44</a><a href="/aktuality/44" class="">45</a><a href="/aktuality/45" class="">46</a><a href="/aktuality/46" class="">47</a><a href="/aktuality/47" class="">48</a><a href="/aktuality/48" class="">49</a><a href="/aktuality/49" class="">50</a><a href="/aktuality/50" class="">51</a><a href="/aktuality/51" class="">52</a><a href="/aktuality/52" class="">53</a><a href="/aktuality/53" class="">54</a><a href="/aktuality/54" class="">55</a><a href="/aktuality/55" class="">56</a><a href="/aktuality/56" class="">57</a><a href="/aktuality/57" class="">58</a><a href="/aktuality/58" class="">59</a><a href="/aktuality/59" class="">60</a><a href="/aktuality/60" class="">61</a><a href="/aktuality/61" class="">62</a><a href="/aktuality/62" class="">63</a><a href="/aktuality/63" class="">64</a><a href="/aktuality/64" class="">65</a><a href="/aktuality/65" class="">66</a><a href="/aktuality/66" class="">67</a><a href="/aktuality/67" class="">68</a><a href="/aktuality/68" class="">69</a><a href="/aktuality/69" class="">70</a><a href="/aktuality/70" class="">71</a><a href="/aktuality/71" class="">72</a><a href="/aktuality/72" class="">73</a><a href="/aktuality/73" class="">74</a><a href="/aktuality/74" class="">75</a></div>				</div>
+				<div id="text-content-submenu">
+					<ul>
+						<li><a href="/fotogalerie">Fotogalerie</a></li>
+						<li><a href="/virtualni-prohlidka">Virtuální prohlídka</a></li>
+						<li><a href="/zpravodaj">Zpravodaj</a></li>
+					</ul>
+				</div>
+				<div id="fast-kontakt">
+					<h2><span class="bolder">Rychlý</span> kontakt</h2>
+					<ul>
+						<li> <img src="/img/mobile.png" />+420 558 684 008</li>
+						<li> <img src="/img/post.png" /><a href="mailto:celadna@iol.cz">celadna@iol.cz</a></li>
+						<li> <img src="/img/house.png" />Čeladná č.p. 1, 739 12 Čeladná</li>
+					</ul>
+          <div style="float:right; height:240px;"><iframe src="https://polar.cz/rss/celadna" scrolling="no" class="iframe-polar" style="border:none;" width="283" height="240"></iframe></div>
+          
+				</div>
+			</div>
+			<div id="footer-block">
+	<ul>
+		<li><a href="/">O obci</a></li>
+		<li><a href="/obecni-urad">Obecní úřad</a></li>
+	</ul>
+	<ul>
+		<li><a href="/samosprava">Samospráva</a></li>
+		<li><a href="/obecni-organizace">Obecní organizace</a></li>	
+	</ul>
+	<ul>
+		<li><a href="/organizace">Organizace</a></li>
+		<li><a href="/fotogalerie">Fotogalerie</a></li>
+	</ul>
+	<ul>
+		<li><a href="/virtualni-prohlidka">Virtuální prohlídka</a></li>
+		<li><a href="/zpravodaj">Zpravodaj</a></li>
+	</ul>
+	<ul>
+		<li><a href="/podminky-uziti">Podmínky užití</a></li>
+		<li><a href="/mapa-stranek">Mapa stránek</a></li>
+	</ul>
+  
+  <a class="senior-taxi" href="/senior-taxi"><img src="/images/senioracek.png" alt="Senior Taxi"></a>
+  
+	<div id="footer-right-col">
+		<p>Copyright © 2014 Čeladná
+		Všechna práva vyhrazena.
+		</p>
+		<p>Webdesign a programování 
+		Netsimple Conspiracy s.r.o.
+		</p>
+		<a href="http://www.netsimple.cz" title="Netsimple - Tvorba webových stránek a aplikací"><img src="/img/netsimple-logo.png" /></a>
+	</div>
+  <div id="app">
+    <span class="label">Aplikace Obec Čeladná ke stažení zdarma</span>
+    <a href="https://play.google.com/store/apps/details?id=cz.tripon.obecceladna" onclick="return !bar(this.href)"><img src="/images/google.png" /></a>
+    <a href="https://itunes.apple.com/us/app/obec-celadna/id1102072135?l=cs&ls=1&mt=8" onclick="return !bar(this.href)"><img src="/images/apple.png" /></a>
+  </div>
+</div>
+
+<div class="cezFrame">
+  <a href="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/redirect"><img src="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/b/728" alt="ČEZ Distribuce – Plánované odstávky" width="728" height="90"></a>
+</div>		</div>
+	</div>
+  
+  <div id="notifee-dialog-wrapper"></div>
+  <div id="notifee-icon-wrapper"></div>
+  <div id="notifee-banner-wrapper"></div>
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-messaging.js"></script>
+  <script src="/js/notifee.js"></script>
+  <script>
+  Notifee.init("https://" + window.location.host, true);
+  </script>
+</body>
+
+</html>

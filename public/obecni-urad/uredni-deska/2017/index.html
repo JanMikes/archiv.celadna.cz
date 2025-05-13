@@ -1,0 +1,212 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs">
+<head>
+	<meta http-equiv="Content-Language" content="cs" />
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+	<meta name="description" content="Úřední deska"/>
+	<meta name="keywords" content="Úřední deska" />
+	<meta name="author" content="Netsimple Conspiracy s.r.o." />
+	<meta name="copyright" content="Čeladná" />
+	<meta name="robots" content="all,follow" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<link href="/css/stylesheet.css?reload=1657180418" rel="stylesheet" type="text/css" />
+	<link href="/css/form.css" rel="stylesheet" type="text/css" />
+	<link href="/css/downloads.css" rel="stylesheet" type="text/css" />
+	<link href="/css/gallery.css" rel="stylesheet" type="text/css" />
+	<link href="/admin/css/stylesheet_tinymce.css" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/notifee.css" type="text/css"/>
+  <script type="text/javascript" src="/jquery/jquery-1.7.2.min.js"></script>
+
+<!-- PopUp - modal box -->
+<link href="/css/reveal.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="/jquery/jquery.reveal.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="/js/scripts.js"></script>  <link href="/jquery/stylesheet.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/jquery/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+
+
+// načtu obrázky
+    	menu_1 = new Image();
+    	menu_1.src="/bannery/'+banner_3.jpg+'";	
+        	menu_2 = new Image();
+    	menu_2.src="/bannery/'+banner_1.jpg+'";	
+        	menu_3 = new Image();
+    	menu_3.src="/bannery/'+banner_4.jpg+'";	
+        	menu_4 = new Image();
+    	menu_4.src="/bannery/'+banner_2.jpg+'";	
+    // END načtu obrázky
+
+
+$(document).ready(function() 
+{
+	var autoPlayTime=5000;
+	autoPlayTimer = setInterval( autoPlay, autoPlayTime);
+	function autoPlay(){
+		Slidebox('next');
+	}
+	$('#slidebox .next').click(function () {
+		Slidebox('next','stop');
+	});
+	$('#slidebox .previous').click(function () {
+		Slidebox('previous','stop');
+	});
+	var yPosition=($('#slidebox').height()-$('#slidebox .next').height())/2;
+	$('#slidebox .next').css('top',yPosition);
+	$('#slidebox .previous').css('top',yPosition);
+	$('#slidebox .thumbs a:first-child').removeClass('thumb').addClass('selected_thumb');
+	$("#slidebox .content").each(function(i){
+		slideboxTotalContent=i*$('#slidebox').width();	
+		$('#slidebox .container').css("width",slideboxTotalContent+$('#slidebox').width());
+	});
+});
+
+function Slidebox(slideTo,autoPlay){
+    var animSpeed=1500; //animation speed
+    var easeType='easeInOutExpo'; //easing type
+	var sliderWidth=$('#slidebox').width();
+	var leftPosition=$('#slidebox .container').css("left").replace("px", "");
+	if( !$("#slidebox .container").is(":animated")){
+		if(slideTo=='next'){ //next
+			if(autoPlay=='stop'){
+				clearInterval(autoPlayTimer);
+			}
+			if(leftPosition==-slideboxTotalContent){
+				$('#slidebox .container').animate({left: 0}, animSpeed, easeType); //reset
+				$('#slidebox .thumbs a:first-child').removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs a:last-child').removeClass('selected_thumb').addClass('thumb');
+			} else {
+				$('#slidebox .container').animate({left: '-='+sliderWidth}, animSpeed, easeType); //next
+				$('#slidebox .thumbs .selected_thumb').next().removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs .selected_thumb').prev().removeClass('selected_thumb').addClass('thumb');
+			}
+		} else if(slideTo=='previous'){ //previous
+			if(autoPlay=='stop'){
+				clearInterval(autoPlayTimer);
+			}
+			if(leftPosition=='0'){
+				$('#slidebox .container').animate({left: '-'+slideboxTotalContent}, animSpeed, easeType); //reset
+				$('#slidebox .thumbs a:last-child').removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs a:first-child').removeClass('selected_thumb').addClass('thumb');
+			} else {
+				$('#slidebox .container').animate({left: '+='+sliderWidth}, animSpeed, easeType); //previous
+				$('#slidebox .thumbs .selected_thumb').prev().removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs .selected_thumb').next().removeClass('selected_thumb').addClass('thumb');
+			}
+		} else {
+			var slide2=(slideTo-1)*sliderWidth;
+			if(leftPosition!=-slide2){
+				clearInterval(autoPlayTimer);
+				$('#slidebox .container').animate({left: -slide2}, animSpeed, easeType); //go to number
+				$('#slidebox .thumbs .selected_thumb').removeClass('selected_thumb').addClass('thumb');
+				var selThumb=$('#slidebox .thumbs a').eq((slideTo-1));
+				selThumb.removeClass('thumb').addClass('selected_thumb');
+			}
+		}
+	}
+}
+</script><link rel="stylesheet" href="/jquery/lightbox/css/lightbox.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="/jquery/lightbox/js/jquery-ui-1.8.18.custom.min.js"></script>
+<script type="text/javascript" src="/jquery/lightbox/js/jquery.smooth-scroll.min.js"></script>
+<script type="text/javascript" src="/jquery/lightbox/js/lightbox.js"></script>	<title>Úřední deska - Obec Čeladná</title>
+</head>
+
+<body>
+	<div id="block-top">
+		<div class="wrapper">
+		<div id="logo">
+			<h1 class="hidden">Obec Čeladná</h1>
+			<a href="/"><img src="/img/logo.png" /></a>
+		</div>
+		<ul><li><a href="/">O obci</a><ul class="submenu"><li><a href="/historie" title="Historie">Historie</a></li><li><a href="/soucasnost" title="Současnost">Současnost</a></li><li><a href="/zajimavosti" title="Zajímavosti">Zajímavosti</a></li><li><a href="/sluzby" title="Služby">Služby</a></li><li><a href="/ubytovani" title="Ubytování">Ubytování</a></li><li><a href="/stravovani" title="Stravování">Stravování</a></li><li><a href="/povodnovy-plan" title="Povodňový plán">Povodňový plán</a></li></ul></li><li class="on"><a href="/obecni-urad">Obecní úřad</a><ul class="submenu"><li><a href="/obecni-urad/kontakty" title="Kontakty">Kontakty</a></li><li><a href="/obecni-urad/pronajem-hotelu-prosper" title="Pronájem hotelu Prosper">Pronájem hotelu Prosper</a></li><li><a href="/obecni-urad/koronavirus-covid-19" title="Koronavirus COVID-19">Koronavirus COVID-19</a></li><li><a href="/obecni-urad/struktura-uradu" title="Struktura úřadu">Struktura úřadu</a></li><li><a href="/obecni-urad/uredni-deska" title="Úřední deska">Úřední deska</a></li><li><a href="/obecni-urad/verejnopravni-smlouvy" title="Veřejnoprávní smlouvy ">Veřejnoprávní smlouvy </a></li><li><a href="/obecni-urad/povinne-informace" title="Poskytnuté informace">Poskytnuté informace</a></li><li><a href="/obecni-urad/rozpocet-a-vz" title="Rozpočet a VZ">Rozpočet a VZ</a></li><li><a href="/obecni-urad/vyhlasky" title="Vyhlášky">Vyhlášky</a></li><li><a href="/obecni-urad/formulare" title="Formuláře">Formuláře</a></li><li><a href="/obecni-urad/odpady" title="Odpady">Odpady</a></li><li><a href="/obecni-urad/ochrana-osobnich-udaju" title="Ochrana osobních údajů">Ochrana osobních údajů</a></li><li><a href="/obecni-urad/navody" title="Návody">Návody</a></li><li><a href="/obecni-urad/zivotni-situace" title="Životní situace">Životní situace</a></li><li><a href="/obecni-urad/uzemni-plan" title="Územní plán">Územní plán</a></li><li><a href="/obecni-urad/strategicky-rozvojovy-dokument-obce-celadna-2015-2020" title="Strategický rozvojový dokument obce Čeladná 2021 - 2030">Strategický rozvojový dokument obce Čeladná 2021 - 2030</a></li><li><a href="/obecni-urad/uzemni-studie-z21" title="Územní studie Z21">Územní studie Z21</a></li><li><a href="/obecni-urad/uzemni-studie-z61" title="Územní studie Z61">Územní studie Z61</a></li><li><a href="/obecni-urad/uzemni-studie-z113" title="Územní studie Z113">Územní studie Z113</a></li><li><a href="/obecni-urad/uzemni-studie-z112" title="Územní studie  Z112">Územní studie  Z112</a></li><li><a href="/obecni-urad/uzemni-studie-z69-lokalita-velke-brehy" title="Územní studie Z69">Územní studie Z69</a></li><li><a href="/obecni-urad/uzemni-studie-z27" title="Územní studie Z27">Územní studie Z27</a></li><li><a href="/obecni-urad/uzemni-studie-z24" title="Územní studie Z24">Územní studie Z24</a></li><li><a href="/obecni-urad/uzemni-studie-z57" title="Územní studie Z57">Územní studie Z57</a></li><li><a href="/obecni-urad/uzemni-studie-z48" title="Územní studie Z48">Územní studie Z48</a></li><li><a href="/obecni-urad/uzemni-studie-z35" title="Územní studie Z35">Územní studie Z35</a></li><li><a href="/obecni-urad/uzemni-studie-z62" title="Územní studie Z62">Územní studie Z62</a></li><li><a href="/obecni-urad/uzemni-studie-z106" title="Územní studie Z106">Územní studie Z106</a></li></ul></li><li><a href="/samosprava">Samospráva</a><ul class="submenu"><li><a href="/samosprava/vedeni-obce" title="Vedení obce">Vedení obce</a></li><li><a href="/samosprava/rada-obce" title="Rada obce">Rada obce</a></li><li><a href="/samosprava/zastupitelstvo" title="Zastupitelstvo">Zastupitelstvo</a></li><li><a href="/samosprava/stret-zajmu" title="Střet zájmů">Střet zájmů</a></li><li><a href="/samosprava/financni-vybor" title="Finanční výbor">Finanční výbor</a></li><li><a href="/samosprava/kulturni-komise" title="Kulturní komise">Kulturní komise</a></li><li><a href="/samosprava/kontrolni-vybor" title="Kontrolní výbor">Kontrolní výbor</a></li><li><a href="/samosprava/komise-pro-zivotni-prostredi" title="Komise pro životní prostředí">Komise pro životní prostředí</a></li><li><a href="/samosprava/komise-pro-obcanske-zalezitosti" title="Komise pro občanské záležitosti">Komise pro občanské záležitosti</a></li><li><a href="/samosprava/volby-2021" title="Volby 2021">Volby 2021</a></li><li><a href="/samosprava/volby-2020" title="Volby 2020">Volby 2020</a></li><li><a href="/samosprava/volby-ep-2019" title="Volby EP 2019">Volby EP 2019</a></li><li><a href="/samosprava/volby-do-zast-2018" title="Volby do zast. 2018">Volby do zast. 2018</a></li><li><a href="/samosprava/volba-prezidenta" title="Volba prezidenta">Volba prezidenta</a></li><li><a href="/samosprava/volby-2017" title="Volby 2017">Volby 2017</a></li></ul></li><li><a href="/obecni-organizace">Obecní organizace</a><ul class="submenu"><li><a href="/obecni-organizace/ms" title="MŠ">MŠ</a></li><li><a href="/obecni-organizace/ms-beruska" title="Mateřská škola Čeladenská beruška">Mateřská škola Čeladenská beruška</a></li><li><a href="/obecni-organizace/zs" title="ZŠ">ZŠ</a></li><li><a href="/obecni-organizace/knihovna-a-ic" title="Knihovna a IC">Knihovna a IC</a></li><li><a href="/obecni-organizace/pamatnik-j-kaluse" title="Památník J. Kaluse">Památník J. Kaluse</a></li></ul></li><li><a href="/organizace">Organizace</a><ul class="submenu"><li><a href="/organizace/sbor-dobrovolnych-hasicu" title="Sbor dobrovolných hasičů">Sbor dobrovolných hasičů</a></li><li><a href="/organizace/farnost" title="Farnost">Farnost</a></li><li><a href="/organizace/detsky-domov" title="Dětský domov">Dětský domov</a></li><li><a href="http://edb.cz" title="Evropská databanka" target="_blank">Evropská databanka</a></li><li><a href="/organizace/sk-beskyd-celadna" title="SK Beskyd Čeladná">SK Beskyd Čeladná</a></li><li><a href=" http://www.policie.cz/SCRIPT/imapa.aspx?area=sm&docid=743&nid=276&num=2" title="Policie ČR" target="_blank">Policie ČR</a></li></ul></li></ul>	
+		</div>
+	</div>
+	<div id="main">
+		<div class="wrapper">
+			<div id="slideshow-block">
+				<div id="slidebox"><div class="next"> </div><div class="previous"> </div><div class="container"><div class="content"><div class="descriptBox"><h2>Nové centrum obce</h2><p>Před rokem 2000 stával na místě dnešního náměstí jen zchátralý objekt bývalé textilní továrny, využívaný jako sklad armády.</p><a href="/nove-centrum-obce">Více info</a></div><div><img src="/bannery/banner_1.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Sportovní hala</h2><p>Výstavbu nových bytů doprovázely další investice. Obec otevřela novou školku, vybudovala fotbalové hřiště a víceúčelovou halu.</p><a href="/sportovni-hala">Více info</a></div><div><img src="/bannery/banner_2.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Beskydské rehabilitační centrum</h2><p>Čeladenské lázně, které zaměstnávají 240 většinou místních obyvatel, jsou chloubou obce. Léčí se v nich pacienti z celé republiky.</p><a href="/beskydske-rehabilitacni-centrum">Více info</a></div><div><img src="/bannery/banner_3.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Golfový areál</h2><p>Rozkvět obce souvisí se sportem gentlemanů. Hřiště evropských parametrů bylo otevřeno v roce 2001, kdy se golf začal stávat lidovou zábavou.</p><a href="/golfovy-areal">Více info</a></div><div><img src="/bannery/banner_4.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div></div><div class="thumbs"><a href="#" onClick="Slidebox('1');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('2');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('3');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('4');return false" class="thumb">&nbsp;</a></div></div>			</div>
+			<div id="text-block">
+				<div id="drobeckova-navigace"><a href="/">Úvodní stránka</a> &gt;&gt; <a href="/obecni-urad">Obecní úřad</a> &gt;&gt; Úřední deska</div>
+				<div id="text-content">
+					<a name="obsah" class="kotva"></a><h2>Úřední deska</h2><h3>viz. přiložený soubor</h3><div class="years"><a href="/obecni-urad/uredni-deska/2022" class="year">2022</a><a href="/obecni-urad/uredni-deska/2021" class="year">2021</a><a href="/obecni-urad/uredni-deska/2020" class="year">2020</a><a href="/obecni-urad/uredni-deska/2019" class="year">2019</a><a href="/obecni-urad/uredni-deska/2018" class="year">2018</a><a href="/obecni-urad/uredni-deska/2017" class="year">2017</a><a href="/obecni-urad/uredni-deska/2016" class="year">2016</a><a href="/obecni-urad/uredni-deska/2015" class="year">2015</a><a href="/obecni-urad/uredni-deska/2014" class="year">2014</a></div><table><tr><th>Datum vyvěšení</th><th>Soubor ke stažení</th></tr><tr><td>19.12.2017</td><td><a href="/admin/files/ModuleUsneseni/1350-uzavreni-uradu-vanoce-2017.pdf">1350-uzavreni-uradu-vanoce-2017.pdf</a><br /></td></tr></table><table><tr><td>18.12.2017</td><td><a href="/admin/files/ModuleUsneseni/1349-pozvanka-na-zasedani-okrskovych-volebnich-komisi-20.pdf">1349-pozvanka-na-zasedani-okrskovych-volebnich-komisi-20.pdf</a><br /></td></tr></table><table><tr><td>15.12.2017</td><td><a href="/admin/files/ModuleUsneseni/1343-schvalene-rozpoctove-opatreni-c.pdf">1343-schvalene-rozpoctove-opatreni-c.pdf</a><br /></td></tr></table><table><tr><td>08.12.2017</td><td><a href="/admin/files/ModuleUsneseni/1340-oznameni-o-zahajeni-spolecneho-uzemniho-a-stavebniho-rizeni-rezidence-za-kostelem.pdf">1340-oznameni-o-zahajeni-spolecneho-uzemniho-a-stavebniho-rizeni-rezidence-za-kostelem.pdf</a><br /></td></tr></table><table><tr><td>04.12.2017</td><td><a href="/admin/files/ModuleUsneseni/1337-oznameni-svolani-zastupitelstva-dne-14.pdf">1337-oznameni-svolani-zastupitelstva-dne-14.pdf</a><br /></td></tr></table><table><tr><td>22.11.2017</td><td><a href="/admin/files/ModuleUsneseni/1327-zverejneni-celkoveho-vyuctovani-vsech-polozek-pro-vypocet-ceny-stocneho-na-rok-2018.pdf">1327-zverejneni-celkoveho-vyuctovani-vsech-polozek-pro-vypocet-ceny-stocneho-na-rok-2018.pdf</a><br /></td></tr></table><table><tr><td>22.11.2017</td><td><a href="/admin/files/ModuleUsneseni/1324-oznameni-o-dobe-a-miste-konani-voleb-prezidenta-ceske-republiky-2018.pdf">1324-oznameni-o-dobe-a-miste-konani-voleb-prezidenta-ceske-republiky-2018.pdf</a><br /></td></tr></table><table><tr><td>09.11.2017</td><td><a href="/admin/files/ModuleUsneseni/1322-informace-o-poctu-a-sidlech-volebnich-okrsku-pro-volby-prezidenta-cr.pdf">1322-informace-o-poctu-a-sidlech-volebnich-okrsku-pro-volby-prezidenta-cr.pdf</a><br /></td></tr></table><table><tr><td>13.11.2017</td><td><a href="/admin/files/ModuleUsneseni/1323-stanoveni-minimalniho-poctu-clenu-volebni-okrskove-komise-pro-volby-prezidenta-cr.pdf">1323-stanoveni-minimalniho-poctu-clenu-volebni-okrskove-komise-pro-volby-prezidenta-cr.pdf</a><br /></td></tr></table><table><tr><td>14.11.2017</td><td><a href="/admin/files/ModuleUsneseni/1318-vykaz-plneni-rozpoctu-frydlantsko-beskydy.pdf">1318-vykaz-plneni-rozpoctu-frydlantsko-beskydy.pdf</a><br /></td></tr></table><table><tr><td>13.11.2017</td><td><a href="/admin/files/ModuleUsneseni/1316-zamer-obce-pronajem-nebyt.pdf">1316-zamer-obce-pronajem-nebyt.pdf</a><br /></td></tr></table><table><tr><td>09.11.2017</td><td><a href="/admin/files/ModuleUsneseni/1315-vyluka-na-trati-17.pdf">1315-vyluka-na-trati-17.pdf</a><br /></td></tr></table><table><tr><td>08.11.2017</td><td><a href="/admin/files/ModuleUsneseni/1314-verejna-vyhlaska-opatreni-obecne-povahy-lesy.pdf">1314-verejna-vyhlaska-opatreni-obecne-povahy-lesy.pdf</a><br /></td></tr></table><table><tr><td>06.11.2017</td><td><a href="/admin/files/ModuleUsneseni/1310-obec-celadna-zamer-pronajmout-vodovodni-pripojku.pdf">1310-obec-celadna-zamer-pronajmout-vodovodni-pripojku.pdf</a><br /></td></tr></table><table><tr><td>06.11.2017</td><td><a href="/admin/files/ModuleUsneseni/1311-obec-celadna-zamer-pronajmout-pozemky.pdf">1311-obec-celadna-zamer-pronajmout-pozemky.pdf</a><br /></td></tr></table><table><tr><td>03.11.2017</td><td><a href="/admin/files/ModuleUsneseni/1309-vyluka-na-trati-dne-8.pdf">1309-vyluka-na-trati-dne-8.pdf</a><br /></td></tr></table><table><tr><td>30.10.2017</td><td><a href="/admin/files/ModuleUsneseni/1308-nabidka-pozemku-k-pronajmu-statnim-pozemkovy-urad.pdf">1308-nabidka-pozemku-k-pronajmu-statnim-pozemkovy-urad.pdf</a><br /></td></tr></table><table><tr><td>24.10.2017</td><td><a href="/admin/files/ModuleUsneseni/1293-verejna-vyhlaska-projednani-navrhu-zmeny-c.pdf">1293-verejna-vyhlaska-projednani-navrhu-zmeny-c.pdf</a><br /></td></tr></table><table><tr><td>18.10.2017</td><td><a href="/admin/files/ModuleUsneseni/1290-pozvanka-na-verejnou-schuzi-map-frydlant-nad-ostravici.pdf">1290-pozvanka-na-verejnou-schuzi-map-frydlant-nad-ostravici.pdf</a><br /></td></tr></table><table><tr><td>09.10.2017</td><td><a href="/admin/files/ModuleUsneseni/1285-seznam-nemovitych-veci-podle-§-245-2013-sb.pdf">1285-seznam-nemovitych-veci-podle-§-245-2013-sb.pdf</a><br /></td></tr></table><table><tr><td>09.10.2017</td><td><a href="/admin/files/ModuleUsneseni/1291-informace-o-planovanem-preruseni-dodavky-elektriny-7.pdf">1291-informace-o-planovanem-preruseni-dodavky-elektriny-7.pdf</a><br /></td></tr></table><table><tr><td>04.10.2017</td><td><a href="/admin/files/ModuleUsneseni/1282-vyluka-na-trati-7.pdf">1282-vyluka-na-trati-7.pdf</a><br /></td></tr></table><table><tr><td>26.09.2017</td><td><a href="/admin/files/ModuleUsneseni/1277-exekuce-konecny-marcel.pdf">1277-exekuce-konecny-marcel.pdf</a><br /></td></tr></table><table><tr><td>25.09.2017</td><td><a href="/admin/files/ModuleUsneseni/1275-svolani-zastupitelstva-dne-5.pdf">1275-svolani-zastupitelstva-dne-5.pdf</a><br /></td></tr></table><table><tr><td>21.09.2017</td><td><a href="/admin/files/ModuleUsneseni/1270-seznam-domu-zarazenych-do-volebnich-okrsku-volby-2017.pdf">1270-seznam-domu-zarazenych-do-volebnich-okrsku-volby-2017.pdf</a><br /></td></tr></table><table><tr><td>19.09.2017</td><td><a href="/admin/files/ModuleUsneseni/1261-oznameni-o-dobe-a-miste-konani-voleb-2017.pdf">1261-oznameni-o-dobe-a-miste-konani-voleb-2017.pdf</a><br /></td></tr></table><table><tr><td>18.09.2017</td><td><a href="/admin/files/ModuleUsneseni/1259-upozorneni-k-odstraneni-stromovi.pdf">1259-upozorneni-k-odstraneni-stromovi.pdf</a><br /></td></tr></table><table><tr><td>18.09.2017</td><td><a href="/admin/files/ModuleUsneseni/1258-verejna-vyhlaska-zastaveni-tezby-smrku-a-borovic.pdf">1258-verejna-vyhlaska-zastaveni-tezby-smrku-a-borovic.pdf</a><br /></td></tr></table><table><tr><td>14.09.2017</td><td><a href="/admin/files/ModuleUsneseni/1255-oznameni-o-upusteni-od-drazby-karla-senauerova.pdf">1255-oznameni-o-upusteni-od-drazby-karla-senauerova.pdf</a><br /></td></tr></table><table><tr><td>14.09.2017</td><td><a href="/admin/files/ModuleUsneseni/1254-vyluka-na-trati-18.pdf">1254-vyluka-na-trati-18.pdf</a><br /></td></tr></table><table><tr><td>31.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1252-vylukovy-jizdni-rad-5.pdf">1252-vylukovy-jizdni-rad-5.pdf</a><br /></td></tr></table><table><tr><td>30.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1249-navrh-aktualizace-zasad-uzemniho-rozvoje-msk.pdf">1249-navrh-aktualizace-zasad-uzemniho-rozvoje-msk.pdf</a><br /></td></tr></table><table><tr><td>30.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1251-veterinarni-opatreni-proti-vcelimu-moru-okr.pdf">1251-veterinarni-opatreni-proti-vcelimu-moru-okr.pdf</a><br /></td></tr></table><table><tr><td>25.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1245-vcely-konec-veterinarnich-opatreni.pdf">1245-vcely-konec-veterinarnich-opatreni.pdf</a><br /></td></tr></table><table><tr><td>22.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1243-vyluka-na-trati-31.pdf">1243-vyluka-na-trati-31.pdf</a><br /></td></tr></table><table><tr><td>22.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1242-verejna-vyhlaska-prechodna-uprava-provozu-uprava-silnice-hlavni-fr.pdf">1242-verejna-vyhlaska-prechodna-uprava-provozu-uprava-silnice-hlavni-fr.pdf</a><br /></td></tr></table><table><tr><td>21.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1239-uprava-silnice-u-zeleznicniho-prejezdu-ve-frydlantu-n.pdf">1239-uprava-silnice-u-zeleznicniho-prejezdu-ve-frydlantu-n.pdf</a><br /><a href="/admin/files/ModuleUsneseni/"></a><br /><a href="/admin/files/ModuleUsneseni/"></a><br /></td></tr></table><table><tr><td>15.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1236-omezeny-vyjezd-vozidel-stavba-zarovec.pdf">1236-omezeny-vyjezd-vozidel-stavba-zarovec.pdf</a><br /></td></tr></table><table><tr><td>14.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1235-vylukovy-jizdni-rad-4.pdf">1235-vylukovy-jizdni-rad-4.pdf</a><br /></td></tr></table><table><tr><td>10.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1234-zamer-obce-pronajem-nebyt.pdf">1234-zamer-obce-pronajem-nebyt.pdf</a><br /></td></tr></table><table><tr><td>07.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1256-stanoveni-minimalniho-poctu-clenu-volebni-komise-20.pdf">1256-stanoveni-minimalniho-poctu-clenu-volebni-komise-20.pdf</a><br /></td></tr></table><table><tr><td>07.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1257-informace-o-poctu-a-sidle-volebnich-okrsku.pdf">1257-informace-o-poctu-a-sidle-volebnich-okrsku.pdf</a><br /></td></tr></table><table><tr><td>07.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1232-komplexni-pozemkove-upravy-v-k.pdf">1232-komplexni-pozemkove-upravy-v-k.pdf</a><br /></td></tr></table><table><tr><td>03.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1229-vyluka-na-trati-7.pdf">1229-vyluka-na-trati-7.pdf</a><br /></td></tr></table><table><tr><td>02.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1227-nabidka-pozemku-k-pronajmu-spu.pdf">1227-nabidka-pozemku-k-pronajmu-spu.pdf</a><br /></td></tr></table><table><tr><td>01.08.2017</td><td><a href="/admin/files/ModuleUsneseni/1226-elektronicka-drazba-martin-honzek.pdf">1226-elektronicka-drazba-martin-honzek.pdf</a><br /></td></tr></table><table><tr><td>31.07.2017</td><td><a href="/admin/files/ModuleUsneseni/1209-verejna-vyhlaska-prechodna-uprava-provozu.pdf">1209-verejna-vyhlaska-prechodna-uprava-provozu.pdf</a><br /><a href="/admin/files/ModuleUsneseni/"></a><br /></td></tr></table><table><tr><td>21.07.2017</td><td><a href="/admin/files/ModuleUsneseni/1206-zamer-obce-pronajem-pozemku.pdf">1206-zamer-obce-pronajem-pozemku.pdf</a><br /></td></tr></table><table><tr><td>19.07.2017</td><td><a href="/admin/files/ModuleUsneseni/1204-elektronicka-drazba-karla-senauerova.pdf">1204-elektronicka-drazba-karla-senauerova.pdf</a><br /></td></tr></table><table><tr><td>19.07.2017</td><td><a href="/admin/files/ModuleUsneseni/1202-prechodna-uprava-provozu-ladna-celadna.pdf">1202-prechodna-uprava-provozu-ladna-celadna.pdf</a><br /><a href="/admin/files/ModuleUsneseni/"></a><br /></td></tr></table><table><tr><td>17.07.2017</td><td><a href="/admin/files/ModuleUsneseni/1193-prechodna-uprava-provozu-1.pdf">1193-prechodna-uprava-provozu-1.pdf</a><br /></td></tr></table><table><tr><td>14.07.2017</td><td><a href="/admin/files/ModuleUsneseni/1187-ukonceni-aktualizace-bpej.pdf">1187-ukonceni-aktualizace-bpej.pdf</a><br /></td></tr></table><table><tr><td>14.07.2017</td><td><a href="/admin/files/ModuleUsneseni/1188-komplexni-pozemkove-upravy-rozhodnuti.pdf">1188-komplexni-pozemkove-upravy-rozhodnuti.pdf</a><br /></td></tr></table><table><tr><td>12.07.2017</td><td><a href="/admin/files/ModuleUsneseni/1185-exekuce-petr-tomecek.pdf">1185-exekuce-petr-tomecek.pdf</a><br /></td></tr></table><table><tr><td>03.07.2017</td><td><a href="/admin/files/ModuleUsneseni/1172-odstavka-vody-17.pdf">1172-odstavka-vody-17.pdf</a><br /></td></tr></table><table><tr><td>27.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1170-pozemkove-upravy-celadna.pdf">1170-pozemkove-upravy-celadna.pdf</a><br /></td></tr></table><table><tr><td>27.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1169-frydlantsko-beskydy.pdf">1169-frydlantsko-beskydy.pdf</a><br /></td></tr></table><table><tr><td>19.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1167-zastupitelstvo-29.pdf">1167-zastupitelstvo-29.pdf</a><br /></td></tr></table><table><tr><td>16.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1166-psi-detektiv.pdf">1166-psi-detektiv.pdf</a><br /></td></tr></table><table><tr><td>15.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1165-obec-przno-vyberove-rizeni-ucetni.pdf">1165-obec-przno-vyberove-rizeni-ucetni.pdf</a><br /></td></tr></table><table><tr><td>14.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1163-konkurs-reditel-zs-a-ms-metylovice.pdf">1163-konkurs-reditel-zs-a-ms-metylovice.pdf</a><br /><a href="/admin/files/ModuleUsneseni/"></a><br /></td></tr></table><table><tr><td>13.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1161-uzavreni-ic-do-16.pdf">1161-uzavreni-ic-do-16.pdf</a><br /></td></tr></table><table><tr><td>08.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1162-navrh-zmen-map-bpej.pdf">1162-navrh-zmen-map-bpej.pdf</a><br /></td></tr></table><table><tr><td>08.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1159-informace-mpsv.pdf">1159-informace-mpsv.pdf</a><br /></td></tr></table><table><tr><td>08.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1158-zmena-c.pdf">1158-zmena-c.pdf</a><br /></td></tr></table><table><tr><td>07.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1156-verejna-vyhlaska-prechodna-uprava-provozu-stroncek.pdf">1156-verejna-vyhlaska-prechodna-uprava-provozu-stroncek.pdf</a><br /><a href="/admin/files/ModuleUsneseni/"></a><br /></td></tr></table><table><tr><td>07.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1155-verejna-vyhlaska-bytovy-dum-zarovec.pdf">1155-verejna-vyhlaska-bytovy-dum-zarovec.pdf</a><br /></td></tr></table><table><tr><td>07.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1153-oznameni-o-zpracovani-us-z-48-planiska-horni.pdf">1153-oznameni-o-zpracovani-us-z-48-planiska-horni.pdf</a><br /><a href="/admin/files/ModuleUsneseni/1154-uzemni-studie-celadna-z48-lokalita-planiska-horni.zip">1154-uzemni-studie-celadna-z48-lokalita-planiska-horni.zip</a><br /></td></tr></table><table><tr><td>07.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1151-oznameni-o-zpracovani-us-z-35-planiska.pdf">1151-oznameni-o-zpracovani-us-z-35-planiska.pdf</a><br /><a href="/admin/files/ModuleUsneseni/1152-uzemni-studie-celadna-z35-lokalita-planiska.zip">1152-uzemni-studie-celadna-z35-lokalita-planiska.zip</a><br /></td></tr></table><table><tr><td>05.06.2017</td><td><a href="/admin/files/ModuleUsneseni/1149-exekuce-martin-honzek.pdf">1149-exekuce-martin-honzek.pdf</a><br /></td></tr></table><table><tr><td>30.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1146-odstavka-elektriny-27.pdf">1146-odstavka-elektriny-27.pdf</a><br /></td></tr></table><table><tr><td>25.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1142-rozpoctova-opatreni-c.pdf">1142-rozpoctova-opatreni-c.pdf</a><br /></td></tr></table><table><tr><td>26.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1141-dodatek-c.pdf">1141-dodatek-c.pdf</a><br /></td></tr></table><table><tr><td>25.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1139-prechodna-uprava-provozu.pdf">1139-prechodna-uprava-provozu.pdf</a><br /></td></tr></table><table><tr><td>24.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1230-udaje-o-stavbe-chodnik-podel-silnice-ii.pdf">1230-udaje-o-stavbe-chodnik-podel-silnice-ii.pdf</a><br /></td></tr></table><table><tr><td>25.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1137-vyluka-na-trati-29.pdf">1137-vyluka-na-trati-29.pdf</a><br /></td></tr></table><table><tr><td>23.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1135-verejna-vyhlaska-bike-celadna.pdf">1135-verejna-vyhlaska-bike-celadna.pdf</a><br /></td></tr></table><table><tr><td>23.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1134-zahajeni-aktualizace-bpej-v-k.pdf">1134-zahajeni-aktualizace-bpej-v-k.pdf</a><br /></td></tr></table><table><tr><td>22.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1133-odstavka-elektriny-16.pdf">1133-odstavka-elektriny-16.pdf</a><br /></td></tr></table><table><tr><td>15.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1132-odstavka-vody-dne-29.pdf">1132-odstavka-vody-dne-29.pdf</a><br /></td></tr></table><table><tr><td>15.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1131-odstavka-elektriny-6.pdf">1131-odstavka-elektriny-6.pdf</a><br /></td></tr></table><table><tr><td>10.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1130-pronajem-nebytovych-prostor-snizeni-ceny-najmu.pdf">1130-pronajem-nebytovych-prostor-snizeni-ceny-najmu.pdf</a><br /></td></tr></table><table><tr><td>04.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1125-zamer-obce-pronajem-vodovod.pdf">1125-zamer-obce-pronajem-vodovod.pdf</a><br /></td></tr></table><table><tr><td>02.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1123-zrusni-planovane-odstavky-ee-5.pdf">1123-zrusni-planovane-odstavky-ee-5.pdf</a><br /></td></tr></table><table><tr><td>02.05.2017</td><td><a href="/admin/files/ModuleUsneseni/1124-porovnani-polozek-pro-vypocet-vodneho-a-stocneho-smvak.pdf">1124-porovnani-polozek-pro-vypocet-vodneho-a-stocneho-smvak.pdf</a><br /></td></tr></table><table><tr><td>28.04.2017</td><td><a href="/admin/files/ModuleUsneseni/1122-porovnani-polozek-pro-vodne-a-stocne-za-r.pdf">1122-porovnani-polozek-pro-vodne-a-stocne-za-r.pdf</a><br /></td></tr></table><table><tr><td>27.04.2017</td><td><a href="/admin/files/ModuleUsneseni/1121-verejna-vyhlaska-dan-z-nemovitosti-na-r.pdf">1121-verejna-vyhlaska-dan-z-nemovitosti-na-r.pdf</a><br /></td></tr></table><table><tr><td>27.04.2017</td><td><a href="/admin/files/ModuleUsneseni/1112-verejna-vyhlaska-stanoveni-prechodne-upravy-provozu.pdf">1112-verejna-vyhlaska-stanoveni-prechodne-upravy-provozu.pdf</a><br /></td></tr></table><table><tr><td>21.04.2017</td><td><a href="/admin/files/ModuleUsneseni/1111-frydlantsko-beskydy-rozpoctove-opatreni.pdf">1111-frydlantsko-beskydy-rozpoctove-opatreni.pdf</a><br /></td></tr></table><table><tr><td>12.04.2017</td><td><a href="/admin/files/ModuleUsneseni/1110-vyluka-na-trati-20.pdf">1110-vyluka-na-trati-20.pdf</a><br /></td></tr></table><table><tr><td>11.04.2017</td><td><a href="/admin/files/ModuleUsneseni/1109-elektrina-5.pdf">1109-elektrina-5.pdf</a><br /></td></tr></table><table><tr><td>11.04.2017</td><td><a href="/admin/files/ModuleUsneseni/1108-elektronicka-drazba-martina-recmanova.pdf">1108-elektronicka-drazba-martina-recmanova.pdf</a><br /></td></tr></table><table><tr><td>07.04.2017</td><td><a href="/admin/files/ModuleUsneseni/1099-vyluka-na-trati-10.pdf">1099-vyluka-na-trati-10.pdf</a><br /></td></tr></table><table><tr><td>06.04.2017</td><td><a href="/admin/files/ModuleUsneseni/1093-obecne-zavazna-vyhlaska-1-2017.pdf">1093-obecne-zavazna-vyhlaska-1-2017.pdf</a><br /><a href="/admin/files/ModuleUsneseni/"></a><br /></td></tr></table><table><tr><td>05.04.2017</td><td><a href="/admin/files/ModuleUsneseni/1087-zaverecny-ucet-frydlantsko-beskydy-2016.pdf">1087-zaverecny-ucet-frydlantsko-beskydy-2016.pdf</a><br /><a href="/admin/files/ModuleUsneseni/1088-inventarizacni-zprava-dso-2016.pdf">1088-inventarizacni-zprava-dso-2016.pdf</a><br /><a href="/admin/files/ModuleUsneseni/1089-komentar-dso-zu.odt">1089-komentar-dso-zu.odt</a><br /><a href="/admin/files/ModuleUsneseni/1090-prehled-hospodareni-zsfb.xls">1090-prehled-hospodareni-zsfb.xls</a><br /><a href="/admin/files/ModuleUsneseni/1091-vykazy-2016-dso.pdf">1091-vykazy-2016-dso.pdf</a><br /><a href="/admin/files/ModuleUsneseni/1092-zu-dso-2016.xls">1092-zu-dso-2016.xls</a><br /></td></tr></table><table><tr><td>04.04.2017</td><td><a href="/admin/files/ModuleUsneseni/1084-nalezeny-labrador.pdf">1084-nalezeny-labrador.pdf</a><br /></td></tr></table><table><tr><td>31.03.2017</td><td><a href="/admin/files/ModuleUsneseni/1097-obecne-zavazna-vyhlaska-1-2009-zmena-ke-dni-30.pdf">1097-obecne-zavazna-vyhlaska-1-2009-zmena-ke-dni-30.pdf</a><br /></td></tr></table><table><tr><td>20.03.2017</td><td><a href="/admin/files/ModuleUsneseni/1076-zastupitelstvo-30.pdf">1076-zastupitelstvo-30.pdf</a><br /></td></tr></table><table><tr><td>20.03.2017</td><td><a href="/admin/files/ModuleUsneseni/1078-poplatky-2017.pdf">1078-poplatky-2017.pdf</a><br /></td></tr></table><table><tr><td>21.03.2017</td><td><a href="/admin/files/ModuleUsneseni/1079-uklizecka-volne-prac.pdf">1079-uklizecka-volne-prac.pdf</a><br /></td></tr></table><table><tr><td>20.03.2017</td><td><a href="/admin/files/ModuleUsneseni/1077-seznam-nemovitych-veci-podle-§-65-zakona-256-2013.pdf">1077-seznam-nemovitych-veci-podle-§-65-zakona-256-2013.pdf</a><br /></td></tr></table><table><tr><td>16.03.2017</td><td><a href="/admin/files/ModuleUsneseni/1075-navrh-rozpoctu-zaj.pdf">1075-navrh-rozpoctu-zaj.pdf</a><br /></td></tr></table><table><tr><td>14.03.2017</td><td><a href="/admin/files/ModuleUsneseni/1068-priloha-k-zav.pdf">1068-priloha-k-zav.pdf</a><br /><a href="/admin/files/ModuleUsneseni/1069-rozvaha-bilance.pdf">1069-rozvaha-bilance.pdf</a><br /><a href="/admin/files/ModuleUsneseni/1070-vykaz-pro-hodnoceni-plneni-rozpoctu.pdf">1070-vykaz-pro-hodnoceni-plneni-rozpoctu.pdf</a><br /><a href="/admin/files/ModuleUsneseni/1071-vykaz-zisku-a-ztraty.pdf">1071-vykaz-zisku-a-ztraty.pdf</a><br /><a href="/admin/files/ModuleUsneseni/1072-zprava-o-vysledku-prezkoumani-hospodareni.pdf">1072-zprava-o-vysledku-prezkoumani-hospodareni.pdf</a><br /><a href="/admin/files/ModuleUsneseni/1073-zapis-c.pdf">1073-zapis-c.pdf</a><br /></td></tr></table><table><tr><td>01.03.2017</td><td><a href="/admin/files/ModuleUsneseni/1049-vyluka-na-trati-7.pdf">1049-vyluka-na-trati-7.pdf</a><br /></td></tr></table><table><tr><td>27.02.2017</td><td><a href="/admin/files/ModuleUsneseni/1046-vyluka-na-trati-1.pdf">1046-vyluka-na-trati-1.pdf</a><br /></td></tr></table><table><tr><td>14.02.2017</td><td><a href="/admin/files/ModuleUsneseni/1043-oznameni-o-planovanem-preruseni-elekriny-14.pdf">1043-oznameni-o-planovanem-preruseni-elekriny-14.pdf</a><br /><a href="/admin/files/ModuleUsneseni/"></a><br /></td></tr></table><table><tr><td>03.02.2017</td><td><a href="/admin/files/ModuleUsneseni/1042-zivotni-podminky-2017.pdf">1042-zivotni-podminky-2017.pdf</a><br /></td></tr></table><table><tr><td>10.02.2017</td><td><a href="/admin/files/ModuleUsneseni/1041-pozvanka-na-setkani-pracovnich-skupin.pdf">1041-pozvanka-na-setkani-pracovnich-skupin.pdf</a><br /></td></tr></table><table><tr><td>18.01.2017</td><td><a href="/admin/files/ModuleUsneseni/1038-odstavka-elektriny-14.pdf">1038-odstavka-elektriny-14.pdf</a><br /></td></tr></table><table><tr><td>12.01.2017</td><td><a href="/admin/files/ModuleUsneseni/1037-svs-ptaci-chripka.pdf">1037-svs-ptaci-chripka.pdf</a><br /></td></tr></table><table><tr><td>11.01.2017</td><td><a href="/admin/files/ModuleUsneseni/1029-map-ii.pdf">1029-map-ii.pdf</a><br /><a href="/admin/files/ModuleUsneseni/"></a><br /></td></tr></table><table><tr><td>10.01.2017</td><td><a href="/admin/files/ModuleUsneseni/1028-informace-k-ptaci-chripce.pdf">1028-informace-k-ptaci-chripce.pdf</a><br /></td></tr></table><table></table><ul><li class="pdf"><div class="text"><a onclick="return !bar(this.href);" href="/admin/files/ModuleText/2984-pracovni-doba-vanocni.pdf"><b>19. 1. - Žádost 1</b></a> - xxx</div></li></ul>				</div>
+				<div id="text-content-submenu">
+					<ul>
+						<li><a href="/fotogalerie">Fotogalerie</a></li>
+						<li><a href="/virtualni-prohlidka">Virtuální prohlídka</a></li>
+						<li><a href="/zpravodaj">Zpravodaj</a></li>
+					</ul>
+				</div>
+				<div id="fast-kontakt">
+					<h2><span class="bolder">Rychlý</span> kontakt</h2>
+					<ul>
+						<li> <img src="/img/mobile.png" />+420 558 684 008</li>
+						<li> <img src="/img/post.png" /><a href="mailto:celadna@iol.cz">celadna@iol.cz</a></li>
+						<li> <img src="/img/house.png" />Čeladná č.p. 1, 739 12 Čeladná</li>
+					</ul>
+          <div style="float:right; height:240px;"><iframe src="https://polar.cz/rss/celadna" scrolling="no" class="iframe-polar" style="border:none;" width="283" height="240"></iframe></div>
+          
+				</div>
+			</div>
+			<div id="footer-block">
+	<ul>
+		<li><a href="/">O obci</a></li>
+		<li><a href="/obecni-urad">Obecní úřad</a></li>
+	</ul>
+	<ul>
+		<li><a href="/samosprava">Samospráva</a></li>
+		<li><a href="/obecni-organizace">Obecní organizace</a></li>	
+	</ul>
+	<ul>
+		<li><a href="/organizace">Organizace</a></li>
+		<li><a href="/fotogalerie">Fotogalerie</a></li>
+	</ul>
+	<ul>
+		<li><a href="/virtualni-prohlidka">Virtuální prohlídka</a></li>
+		<li><a href="/zpravodaj">Zpravodaj</a></li>
+	</ul>
+	<ul>
+		<li><a href="/podminky-uziti">Podmínky užití</a></li>
+		<li><a href="/mapa-stranek">Mapa stránek</a></li>
+	</ul>
+  
+  <a class="senior-taxi" href="/senior-taxi"><img src="/images/senioracek.png" alt="Senior Taxi"></a>
+  
+	<div id="footer-right-col">
+		<p>Copyright © 2014 Čeladná
+		Všechna práva vyhrazena.
+		</p>
+		<p>Webdesign a programování 
+		Netsimple Conspiracy s.r.o.
+		</p>
+		<a href="http://www.netsimple.cz" title="Netsimple - Tvorba webových stránek a aplikací"><img src="/img/netsimple-logo.png" /></a>
+	</div>
+  <div id="app">
+    <span class="label">Aplikace Obec Čeladná ke stažení zdarma</span>
+    <a href="https://play.google.com/store/apps/details?id=cz.tripon.obecceladna" onclick="return !bar(this.href)"><img src="/images/google.png" /></a>
+    <a href="https://itunes.apple.com/us/app/obec-celadna/id1102072135?l=cs&ls=1&mt=8" onclick="return !bar(this.href)"><img src="/images/apple.png" /></a>
+  </div>
+</div>
+
+<div class="cezFrame">
+  <a href="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/redirect"><img src="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/b/728" alt="ČEZ Distribuce – Plánované odstávky" width="728" height="90"></a>
+</div>		</div>
+	</div>
+  
+  <div id="notifee-dialog-wrapper"></div>
+  <div id="notifee-icon-wrapper"></div>
+  <div id="notifee-banner-wrapper"></div>
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-messaging.js"></script>
+  <script src="/js/notifee.js"></script>
+  <script>
+  Notifee.init("https://" + window.location.host, true);
+  </script>
+</body>
+
+</html>

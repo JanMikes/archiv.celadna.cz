@@ -1,0 +1,8 @@
+#main #text-block #text-content .photoFrame {float: left;}
+#main #text-block #text-content td IMG {/*float: left;*/ height: 90px; margin-bottom: 5px;}
+#main #text-block #text-content .photoFrame A {margin: 0px 16px 16px 0px; padding: 1px; background-color: #ccc; float: left; height: 100px;}
+#main #text-block #text-content .photoFrame .last {margin-right: 0px;}
+
+#contentFrame .videogalleryFrame {width: 720px; float: left;}
+#contentFrame .videogalleryFrame H3 {width: 720px; float: left; margin: 10px 0px 10px 0px; font-size: 16px; font-weight: bold; color: #1690BB;}
+#contentFrame .videogalleryFrame P {width: 720px; float: left; margin: 5px 0px 20px 0px; padding: 0px 0px 15px 0px; border-bottom: 1px #ccc dotted;}

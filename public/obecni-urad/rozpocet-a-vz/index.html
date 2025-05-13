@@ -1,0 +1,212 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs">
+<head>
+	<meta http-equiv="Content-Language" content="cs" />
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+	<meta name="description" content="Rozpočet a VZ"/>
+	<meta name="keywords" content="Rozpočet a VZ" />
+	<meta name="author" content="Netsimple Conspiracy s.r.o." />
+	<meta name="copyright" content="Čeladná" />
+	<meta name="robots" content="all,follow" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<link href="/css/stylesheet.css?reload=1715169951" rel="stylesheet" type="text/css" />
+	<link href="/css/form.css" rel="stylesheet" type="text/css" />
+	<link href="/css/downloads.css" rel="stylesheet" type="text/css" />
+	<link href="/css/gallery.css" rel="stylesheet" type="text/css" />
+	<link href="/admin/css/stylesheet_tinymce.css" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/notifee.css" type="text/css"/>
+  <script type="text/javascript" src="/jquery/jquery-1.7.2.min.js"></script>
+
+<!-- PopUp - modal box -->
+<link href="/css/reveal.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="/jquery/jquery.reveal.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="/js/scripts.js"></script>  <link href="/jquery/stylesheet.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/jquery/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+
+
+// načtu obrázky
+    	menu_1 = new Image();
+    	menu_1.src="/bannery/'+banner_3.jpg+'";	
+        	menu_2 = new Image();
+    	menu_2.src="/bannery/'+banner_1.jpg+'";	
+        	menu_3 = new Image();
+    	menu_3.src="/bannery/'+banner_4.jpg+'";	
+        	menu_4 = new Image();
+    	menu_4.src="/bannery/'+banner_2.jpg+'";	
+    // END načtu obrázky
+
+
+$(document).ready(function() 
+{
+	var autoPlayTime=5000;
+	autoPlayTimer = setInterval( autoPlay, autoPlayTime);
+	function autoPlay(){
+		Slidebox('next');
+	}
+	$('#slidebox .next').click(function () {
+		Slidebox('next','stop');
+	});
+	$('#slidebox .previous').click(function () {
+		Slidebox('previous','stop');
+	});
+	var yPosition=($('#slidebox').height()-$('#slidebox .next').height())/2;
+	$('#slidebox .next').css('top',yPosition);
+	$('#slidebox .previous').css('top',yPosition);
+	$('#slidebox .thumbs a:first-child').removeClass('thumb').addClass('selected_thumb');
+	$("#slidebox .content").each(function(i){
+		slideboxTotalContent=i*$('#slidebox').width();	
+		$('#slidebox .container').css("width",slideboxTotalContent+$('#slidebox').width());
+	});
+});
+
+function Slidebox(slideTo,autoPlay){
+    var animSpeed=1500; //animation speed
+    var easeType='easeInOutExpo'; //easing type
+	var sliderWidth=$('#slidebox').width();
+	var leftPosition=$('#slidebox .container').css("left").replace("px", "");
+	if( !$("#slidebox .container").is(":animated")){
+		if(slideTo=='next'){ //next
+			if(autoPlay=='stop'){
+				clearInterval(autoPlayTimer);
+			}
+			if(leftPosition==-slideboxTotalContent){
+				$('#slidebox .container').animate({left: 0}, animSpeed, easeType); //reset
+				$('#slidebox .thumbs a:first-child').removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs a:last-child').removeClass('selected_thumb').addClass('thumb');
+			} else {
+				$('#slidebox .container').animate({left: '-='+sliderWidth}, animSpeed, easeType); //next
+				$('#slidebox .thumbs .selected_thumb').next().removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs .selected_thumb').prev().removeClass('selected_thumb').addClass('thumb');
+			}
+		} else if(slideTo=='previous'){ //previous
+			if(autoPlay=='stop'){
+				clearInterval(autoPlayTimer);
+			}
+			if(leftPosition=='0'){
+				$('#slidebox .container').animate({left: '-'+slideboxTotalContent}, animSpeed, easeType); //reset
+				$('#slidebox .thumbs a:last-child').removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs a:first-child').removeClass('selected_thumb').addClass('thumb');
+			} else {
+				$('#slidebox .container').animate({left: '+='+sliderWidth}, animSpeed, easeType); //previous
+				$('#slidebox .thumbs .selected_thumb').prev().removeClass('thumb').addClass('selected_thumb');
+				$('#slidebox .thumbs .selected_thumb').next().removeClass('selected_thumb').addClass('thumb');
+			}
+		} else {
+			var slide2=(slideTo-1)*sliderWidth;
+			if(leftPosition!=-slide2){
+				clearInterval(autoPlayTimer);
+				$('#slidebox .container').animate({left: -slide2}, animSpeed, easeType); //go to number
+				$('#slidebox .thumbs .selected_thumb').removeClass('selected_thumb').addClass('thumb');
+				var selThumb=$('#slidebox .thumbs a').eq((slideTo-1));
+				selThumb.removeClass('thumb').addClass('selected_thumb');
+			}
+		}
+	}
+}
+</script><link rel="stylesheet" href="/jquery/lightbox/css/lightbox.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="/jquery/lightbox/js/jquery-ui-1.8.18.custom.min.js"></script>
+<script type="text/javascript" src="/jquery/lightbox/js/jquery.smooth-scroll.min.js"></script>
+<script type="text/javascript" src="/jquery/lightbox/js/lightbox.js"></script>	<title>Rozpočet a VZ - Obec Čeladná</title>
+</head>
+
+<body>
+	<div id="block-top">
+		<div class="wrapper">
+		<div id="logo">
+			<h1 class="hidden">Obec Čeladná</h1>
+			<a href="/"><img src="/img/logo.png" /></a>
+		</div>
+		<ul><li><a href="/">O obci</a><ul class="submenu"><li><a href="/historie" title="Historie">Historie</a></li><li><a href="/soucasnost" title="Současnost">Současnost</a></li><li><a href="/zajimavosti" title="Zajímavosti">Zajímavosti</a></li><li><a href="/sluzby" title="Služby">Služby</a></li><li><a href="/ubytovani" title="Ubytování">Ubytování</a></li><li><a href="/stravovani" title="Stravování">Stravování</a></li><li><a href="/povodnovy-plan" title="Povodňový plán">Povodňový plán</a></li></ul></li><li class="on"><a href="/obecni-urad">Obecní úřad</a><ul class="submenu"><li><a href="/obecni-urad/kontakty" title="Kontakty">Kontakty</a></li><li><a href="/obecni-urad/pronajem-hotelu-prosper" title="Pronájem hotelu Prosper">Pronájem hotelu Prosper</a></li><li><a href="/obecni-urad/koronavirus-covid-19" title="Koronavirus COVID-19">Koronavirus COVID-19</a></li><li><a href="/obecni-urad/struktura-uradu" title="Struktura úřadu">Struktura úřadu</a></li><li><a href="/obecni-urad/uredni-deska" title="Úřední deska">Úřední deska</a></li><li><a href="/obecni-urad/verejnopravni-smlouvy" title="Veřejnoprávní smlouvy ">Veřejnoprávní smlouvy </a></li><li><a href="/obecni-urad/povinne-informace" title="Poskytnuté informace">Poskytnuté informace</a></li><li><a href="/obecni-urad/rozpocet-a-vz" title="Rozpočet a VZ">Rozpočet a VZ</a></li><li><a href="/obecni-urad/vyhlasky" title="Vyhlášky">Vyhlášky</a></li><li><a href="/obecni-urad/formulare" title="Formuláře">Formuláře</a></li><li><a href="/obecni-urad/odpady" title="Odpady">Odpady</a></li><li><a href="/obecni-urad/ochrana-osobnich-udaju" title="Ochrana osobních údajů">Ochrana osobních údajů</a></li><li><a href="/obecni-urad/navody" title="Návody">Návody</a></li><li><a href="/obecni-urad/zivotni-situace" title="Životní situace">Životní situace</a></li><li><a href="/obecni-urad/uzemni-plan" title="Územní plán">Územní plán</a></li><li><a href="/obecni-urad/strategicky-rozvojovy-dokument-obce-celadna-2015-2020" title="Strategický rozvojový dokument obce Čeladná 2021 - 2030">Strategický rozvojový dokument obce Čeladná 2021 - 2030</a></li><li><a href="/obecni-urad/uzemni-studie-z21" title="Územní studie Z21">Územní studie Z21</a></li><li><a href="/obecni-urad/uzemni-studie-z61" title="Územní studie Z61">Územní studie Z61</a></li><li><a href="/obecni-urad/uzemni-studie-z113" title="Územní studie Z113">Územní studie Z113</a></li><li><a href="/obecni-urad/uzemni-studie-z112" title="Územní studie  Z112">Územní studie  Z112</a></li><li><a href="/obecni-urad/uzemni-studie-z69-lokalita-velke-brehy" title="Územní studie Z69">Územní studie Z69</a></li><li><a href="/obecni-urad/uzemni-studie-z27" title="Územní studie Z27">Územní studie Z27</a></li><li><a href="/obecni-urad/uzemni-studie-z24" title="Územní studie Z24">Územní studie Z24</a></li><li><a href="/obecni-urad/uzemni-studie-z57" title="Územní studie Z57">Územní studie Z57</a></li><li><a href="/obecni-urad/uzemni-studie-z48" title="Územní studie Z48">Územní studie Z48</a></li><li><a href="/obecni-urad/uzemni-studie-z35" title="Územní studie Z35">Územní studie Z35</a></li><li><a href="/obecni-urad/uzemni-studie-z62" title="Územní studie Z62">Územní studie Z62</a></li><li><a href="/obecni-urad/uzemni-studie-z106" title="Územní studie Z106">Územní studie Z106</a></li></ul></li><li><a href="/samosprava">Samospráva</a><ul class="submenu"><li><a href="/samosprava/vedeni-obce" title="Vedení obce">Vedení obce</a></li><li><a href="/samosprava/rada-obce" title="Rada obce">Rada obce</a></li><li><a href="/samosprava/zastupitelstvo" title="Zastupitelstvo">Zastupitelstvo</a></li><li><a href="/samosprava/stret-zajmu" title="Střet zájmů">Střet zájmů</a></li><li><a href="/samosprava/financni-vybor" title="Finanční výbor">Finanční výbor</a></li><li><a href="/samosprava/kulturni-komise" title="Kulturní komise">Kulturní komise</a></li><li><a href="/samosprava/kontrolni-vybor" title="Kontrolní výbor">Kontrolní výbor</a></li><li><a href="/samosprava/komise-pro-zivotni-prostredi" title="Komise pro životní prostředí">Komise pro životní prostředí</a></li><li><a href="/samosprava/komise-pro-obcanske-zalezitosti" title="Komise pro občanské záležitosti">Komise pro občanské záležitosti</a></li><li><a href="/samosprava/volby-2021" title="Volby 2021">Volby 2021</a></li><li><a href="/samosprava/volby-2020" title="Volby 2020">Volby 2020</a></li><li><a href="/samosprava/volby-ep-2019" title="Volby EP 2019">Volby EP 2019</a></li><li><a href="/samosprava/volby-do-zast-2018" title="Volby do zast. 2018">Volby do zast. 2018</a></li><li><a href="/samosprava/volba-prezidenta" title="Volba prezidenta">Volba prezidenta</a></li><li><a href="/samosprava/volby-2017" title="Volby 2017">Volby 2017</a></li></ul></li><li><a href="/obecni-organizace">Obecní organizace</a><ul class="submenu"><li><a href="/obecni-organizace/ms" title="MŠ">MŠ</a></li><li><a href="/obecni-organizace/ms-beruska" title="Mateřská škola Čeladenská beruška">Mateřská škola Čeladenská beruška</a></li><li><a href="/obecni-organizace/zs" title="ZŠ">ZŠ</a></li><li><a href="/obecni-organizace/knihovna-a-ic" title="Knihovna a IC">Knihovna a IC</a></li><li><a href="/obecni-organizace/pamatnik-j-kaluse" title="Památník J. Kaluse">Památník J. Kaluse</a></li></ul></li><li><a href="/organizace">Organizace</a><ul class="submenu"><li><a href="/organizace/sbor-dobrovolnych-hasicu" title="Sbor dobrovolných hasičů">Sbor dobrovolných hasičů</a></li><li><a href="/organizace/farnost" title="Farnost">Farnost</a></li><li><a href="/organizace/detsky-domov" title="Dětský domov">Dětský domov</a></li><li><a href="http://edb.cz" title="Evropská databanka" target="_blank">Evropská databanka</a></li><li><a href="/organizace/sk-beskyd-celadna" title="SK Beskyd Čeladná">SK Beskyd Čeladná</a></li><li><a href=" http://www.policie.cz/SCRIPT/imapa.aspx?area=sm&docid=743&nid=276&num=2" title="Policie ČR" target="_blank">Policie ČR</a></li></ul></li></ul>	
+		</div>
+	</div>
+	<div id="main">
+		<div class="wrapper">
+			<div id="slideshow-block">
+				<div id="slidebox"><div class="next"> </div><div class="previous"> </div><div class="container"><div class="content"><div class="descriptBox"><h2>Nové centrum obce</h2><p>Před rokem 2000 stával na místě dnešního náměstí jen zchátralý objekt bývalé textilní továrny, využívaný jako sklad armády.</p><a href="/nove-centrum-obce">Více info</a></div><div><img src="/bannery/banner_1.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Sportovní hala</h2><p>Výstavbu nových bytů doprovázely další investice. Obec otevřela novou školku, vybudovala fotbalové hřiště a víceúčelovou halu.</p><a href="/sportovni-hala">Více info</a></div><div><img src="/bannery/banner_2.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Beskydské rehabilitační centrum</h2><p>Čeladenské lázně, které zaměstnávají 240 většinou místních obyvatel, jsou chloubou obce. Léčí se v nich pacienti z celé republiky.</p><a href="/beskydske-rehabilitacni-centrum">Více info</a></div><div><img src="/bannery/banner_3.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div><div class="content"><div class="descriptBox"><h2>Golfový areál</h2><p>Rozkvět obce souvisí se sportem gentlemanů. Hřiště evropských parametrů bylo otevřeno v roce 2001, kdy se golf začal stávat lidovou zábavou.</p><a href="/golfovy-areal">Více info</a></div><div><img src="/bannery/banner_4.jpg" alt="Čeladná" title="Čeladná" /><div class="descFrame"></div></div></div></div><div class="thumbs"><a href="#" onClick="Slidebox('1');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('2');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('3');return false" class="thumb">&nbsp;</a><a href="#" onClick="Slidebox('4');return false" class="thumb">&nbsp;</a></div></div>			</div>
+			<div id="text-block">
+				<div id="drobeckova-navigace"><a href="/">Úvodní stránka</a> &gt;&gt; <a href="/obecni-urad">Obecní úřad</a> &gt;&gt; Rozpočet a VZ</div>
+				<div id="text-content">
+					<a name="obsah" class="kotva"></a><h2>Rozpočet a VZ</h2><h3>Rozpočet</h3><table><tr><th>Rok</th><th>Soubor ke stažení</th></tr><tr><td>2022</td><td><a href="/admin/files/ModuleUsneseni/3576-ro-1-2022.pdf">Rozpočtová opatření č. 1 sestavená k 20. 1. 2022</a></td></tr><tr><td>2022</td><td><a href="/admin/files/ModuleUsneseni/3575-ro-2-2022.pdf">Rozpočtová opatření č. 2 sestavená k 15. 2. 2022</a></td></tr><tr><td>2022</td><td><a href="/admin/files/ModuleUsneseni/3500-sekretariat-celadna.pdf">Rozpočtová opatření č. 10 sestavená k 29. 12. 2021</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3462-sekretariat-celadna.pdf">Rozpočtová opatření č. 9 sestavená k 30. 11. 2021</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3438-sekretariat-celadna.pdf">Rozpočet obce Čeladná na rok 2022</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3439-sekretariat-celadna.pdf">Střednědobý výhled rozpočtu obce Čeladná na období 2023-2024</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3414-sekretariat-celadna.pdf">Návrh Střednědobého výhledu rozpočtu Obce Čeladná na období 2023 - 2024</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3435-sekretariat-celadna.pdf">Návrh rozpočtu Obce Čeladná na kalendářní rok 2022</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3402-sekretariat-celadna.pdf">Rozpočtová opatření č. 8 sestavená k 31. 10. 2021</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3401-sekretariat-celadna.pdf">Rozpočtová opatření č. 7 sestavená k 30. 9. 2021</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3341-sekretariat-celadna.pdf">Rozpočtová opatření č. 6 sestavená k 25. 8. 2021</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3340-sekretariat-celadna.pdf">Rozpočtová opatření č. 5 sestavená k 5. 7. 2021</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3339-sekretariat-celadna.pdf">Rozpočtová opatření č. 4 sestavená k 5. 6. 2021</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3338-sekretariat-celadna.pdf">Rozpočtová opatření č. 3 sestavená k 15. 5. 2021</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3167-sekretariat-celadna.pdf">Rozpočtová opatření č. 2 sestavená k 15. 4. 2021</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3099-sekretariat-celadna.pdf">Rozpočtová opatření č. 1 sestavená k 15. 1. 2021</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2972-rozpoctovky-8-2020.pdf">Rozpočtová opatření č. 8 sestavená k 15.12. 2020</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2971-rozpoctovky-7-2020.pdf">Rozpočtová opatření č. 7 sestavená k 15. 10. 2020</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2954-sekretariat-celadna.pdf">Střednědobý výhled hospodaření obce Čeladná na období 2022-2023</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2952-sekretariat-celadna.pdf">Schválený rozpočet obce Čeladná na rok 2021</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2912-sekretariat-celadna.pdf">Návrh rozpočtu Obce Čeladná na kalendářní rok 2021</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2921-sekretariat-celadna.pdf">Návrh Střednědobého výhledu rozpočtu Obce Čeladná na období 2022 - 2023</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2838-rozpoctovky-6.pdf">Rozpočtová opatření č. 6 sestavená k 20. 9. 2020</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2837-rozpoctovky-5.pdf">Rozpočtová opatření č. 5 sestavená k 27. 7. 2020</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2836-rozpoctovky-4.pdf">Rozpočtová opatření č. 4 sestavená k 1. 7. 2020</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2709-rozpoctovky-3.pdf">Rozpočtová opatření č. 3 sestavená k 15. 6. 2020</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2708-rozpoctovky-2.pdf">Rozpočtová opatření č. 2 sestavená k 10. 5. 2020</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2527-sekretariat-celadna.pdf">Protokol o schvalování účetní uzávěrky za rok 2019</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2707-rozpoctovky-1.pdf">Rozpočtová opatření č. 1 sestavená k 20. 3. 2020</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2354-10.pdf">Rozpočtová opatření č. 10 sestavená k 30. 12. 2019</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/2366-rozpoctovky-9.pdf">Rozpočtová opatření č. 9 sestavená k 15. 12. 2019</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/2368-8.pdf">Rozpočtová opatření č. 8 sestavená k 15. 11. 2019</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/2349-7.pdf">Rozpočtová opatření č. 7 sestavená k 31. 10. 2019</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/2318-sekretariat-celadna.pdf">Rozpočet Obce Čeladná na rok 2020</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/2319-sekretariat-celadna.pdf">Střednědobý výhled rozpočtu Obce Čeladná na období 2021 - 2023</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/2297-navrh-rozpoctu-obce-celadna-2020-dle-rozhodnuti-rady-c.pdf">Návrh rozpočtu Obce Čeladná na rok 2020 - dle usnesení rady Obce Čeladná č. 16 ze dne 25. 11. 2019</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/2289-navrh-rozpoctu-obce-celadna-2020.pdf">Návrh rozpočtu Obce Čeladná na rok 2020</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/2288-navrh-strednedobeho-vyhledu-rozpoctu-obce-2021-2023.pdf">Návrh střednědobého výhledu rozpočtu Obce Čeladná na období 2021-2023</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/2267-rozpoctovky-c.pdf">Rozpočtová opatření č. 6 sestavená k 30. 8. 2019</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/2222-rozpoctovky-5.pdf">Rozpočtová opatření č. 5 sestavená k 10. 6. 2019</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/2208-rozpoctovky-4.pdf">Rozpočtová opatření č. 4 sestavená k 15. 5. 2019</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/2207-rozpoctovky-3.pdf">Rozpočtová opatření č. 3 sestavená k 20. 4. 2019</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/1973-protokol-o-schvalovani-ucetni-uzaverky.pdf">Protokol o schvalování účetní uzávěrky</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/1953-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 2 sestavená k 15. 2. 2019</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/1954-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 1 sestavená k 20. 1. 2019</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/1830-rozpoctova-opatreni-9.pdf">Rozpočtová opatření č. 9 sestavená k 17. 12. 2018</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1800-rozpocet-2019.pdf">Rozpočet Obce Čeladná na rok 2019</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1797-strednedoby-vyhled.pdf">Střednědobý výhled rozpočtu Obce Čeladná na období 2020 - 2022</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1828-rozpoctova-opatreni-8.pdf">Rozpočtová opatření č. 8 sestavená k 20. 11. 2018</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1783-vyhled-rozpoctu-celadna-2020-2022.pdf">Návrh rozpočtového výhledu Obce Čeladná na období 2020 - 2022</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1780-rozpocet-2019.pdf">Návrh rozpočtu Obce Čeladná na rok 2019</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1755-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 7 sestavená k 30. 9. 2018</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1676-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 6 sestavená k 28. 8. 2018</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1665-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 5 sestavená k 1. 8. 2018</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1651-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 4 sestavená k 15. 7. 2018</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1505-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 3 sestavená k 30. 5. 2018</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1456-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 2 sestavená k 1. 4. 2018</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1455-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 1 sestavená k 1. 3. 2018</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1411-protokol-o-schvalovani-ucetni-uzaverky.pdf">Protokol o schvalování účetní uzávěrky</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1384-rozpoctova-opatreni-obce-celadna-c.pdf">Rozpočtová opatření č. 7 sestavená k 27. 12. 2017</a></td></tr><tr><td>2017</td><td><a href="/admin/files/ModuleUsneseni/1347-rozpocet-2018.pdf">Rozpočet 2018</a></td></tr><tr><td>2017</td><td><a href="/admin/files/ModuleUsneseni/1369-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 6 sestavená k 6. 12. 2017</a></td></tr><tr><td>2017</td><td><a href="/admin/files/ModuleUsneseni/1339-navrh-rozpoctu-2018-pripominka-ze-dne-6.pdf">Návrh rozpočtu 2018 - připomínka ze dne 6. 12. 2017</a></td></tr><tr><td>2017</td><td><a href="/admin/files/ModuleUsneseni/1335-navrh-strednedobeho-vyhledu-rozpoctu-obce-2019-2021.pdf">Návrh střednědobého výhledu rozpočtu obce na období 2019 - 2021</a></td></tr><tr><td>2017</td><td><a href="/admin/files/ModuleUsneseni/1336-navrh-rozpoctu-2018.pdf">Návrh rozpočtu 2018</a></td></tr><tr><td>2017</td><td><a href="/admin/files/ModuleUsneseni/1319-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 5 sestavená k 25. 10. 2017</a></td></tr><tr><td>2017</td><td><a href="/admin/files/ModuleUsneseni/1278-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 4 sestavená k 15. 9. 2017</a></td></tr><tr><td>2017</td><td><a href="/admin/files/ModuleUsneseni/1244-rozpoctova-opatreni-obce-celadna-c.pdf">Rozpočtová opatření č. 3 sestavená k 31. 7. 2017</a></td></tr><tr><td>2017</td><td><a href="/admin/files/ModuleUsneseni/1192-rozpoctova-opatreni-obce-celadna-c.pdf">Rozpočtová opatření č. 2 sestavená k 30. 6. 2017</a></td></tr><tr><td>2017</td><td><a href="/admin/files/ModuleUsneseni/1190-rozpoctova-opatreni-c.pdf">Rozpočtová opatření č. 1 sestavená k 25. 4. 2017</a></td></tr><tr><td>2016</td><td><a href="/admin/files/ModuleUsneseni/1148-rozpocet-a-rozpoctova-opatreni-obce-celadna-2017.pdf">Rozpočet Obce Čeladná pro rok 2017</a></td></tr><tr><td>2015</td><td><a href="/admin/files/ModuleUsneseni/702-rozpocet-obce-celadna-pro-rok-2016.pdf">Rozpočet Obce Čeladná pro rok 2016</a></td></tr><tr><td>2014</td><td><a href="/admin/files/ModuleUsneseni/388-sekretariat-celadna.pdf">Rozpočet 2015</a></td></tr><tr><td>2014</td><td><a href="/admin/files/ModuleUsneseni/88-rozpocet-2014.pdf">Rozpočet 2014</a></td></tr><tr><td>2021</td><td></td></tr><tr><td>2019</td><td></td></tr></table><h3>Výroční zprávy</h3><table><tr><th>Rok</th><th>Soubor ke stažení</th></tr><tr><td>2022</td><td><a href="/admin/files/ModuleUsneseni/3505-sekretariat-celadna.pdf">Výroční zpráva podle zákona č. 106/1999 Sb. za rok 2021</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3017-sekretariat-celadna.pdf">Výroční zpráva podle zákona č. 106/1999 Sb. za rok 2020</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/3018-sekretariat-celadna.pdf">Výroční zpráva podle zákona č. 106/1999 Sb. za rok 2019</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/1851-vyrocni-zprava-za-rok-2018.pdf">Výroční zpráva podle zákona č. 106/1999 Sb. za rok 2018</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1395-vyrocni-zprava-podle-zakona-106.pdf">Výroční zpráva podle zákona č. 106/1999 Sb. za rok 2017</a></td></tr><tr><td>2017</td><td><a href="/admin/files/ModuleUsneseni/1048-vyrocni-zprava-podle-zakona-c.pdf">Výroční zpráva podle zákona č. 106/1999 Sb. za rok 2016</a></td></tr><tr><td>2013</td><td><a href="/admin/files/ModuleUsneseni/225-vyrocni-zprava-podle-zakona-c.pdf">Výroční zprávy podle zákona 106/1999 za rok 2013 </a></td></tr><tr><td>2014</td><td><a href="/admin/files/ModuleUsneseni/437-vyrocni-zprava-podle-zakona-c.pdf">Výroční zpráva podle zákona č. 106/1999 Sb. za rok 2014</a></td></tr><tr><td>2016</td><td><a href="/admin/files/ModuleUsneseni/787-vyrocni-zprava-podle-zakona-c.pdf">Výroční zpráva podle zákona č. 106/1999 Sb. za rok 2015</a></td></tr></table><h3>Závěrečný účet</h3><table><tr><th>Datum vyvěšení</th><th>Soubor ke stažení</th></tr><tr><td>2022</td><td><a href="/admin/files/ModuleUsneseni/3539-zaverecny-ucet-2021-1.pdf">Závěrečný účet 2021</a></td></tr><tr><td>2022</td><td><a href="/admin/files/ModuleUsneseni/3540-zaverecny-ucet-2021-2.pdf">Závěrečný účet 2021 - přílohy</a></td></tr><tr><td>2021</td><td><a href="/admin/files/ModuleUsneseni/3432-zaverecny-ucet-2020.pdf">Závěrečný účet 2020</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2400-sekretariat-celadna.pdf">Závěrečný účet 2019 - schválení finančního výboru</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2396-zaverecny-ucet-2019.pdf">Závěrečný účet 2019</a></td></tr><tr><td>2020</td><td><a href="/admin/files/ModuleUsneseni/2397-zprava-o-vysledku-prezkoumani-hospodareni-za-rok-2019.pdf">Zpráva o výsledku přezkoumání hospodaření za rok 2019</a></td></tr><tr><td>2019</td><td><a href="/admin/files/ModuleUsneseni/1892-zaverecny-ucet-2018.pdf">Závěrečný účet 2018</a></td></tr><tr><td>2018</td><td><a href="/admin/files/ModuleUsneseni/1397-zaverecny-ucet-2017.pdf">Závěrečný účet 2017</a></td></tr><tr><td>2013</td><td><a href="/admin/files/ModuleUsneseni/226-zaverecny-ucet-2013.pdf">Závěrečný účet 2013</a></td></tr><tr><td>2015</td><td><a href="/admin/files/ModuleUsneseni/447-priloha-k-zaverecnemu-uctu-obce-zpracovanemu-za-obdobi-1.pdf">Závěrečný účet 2014</a></td></tr><tr><td>2016</td><td><a href="/admin/files/ModuleUsneseni/903-zaverecny-ucet-obce-za-rok-2015.pdf">Závěrečný účet 2015</a></td></tr><tr><td>2017</td><td><a href="/admin/files/ModuleUsneseni/1074-zaverecny-ucet-2016-final.pdf">Závěrečný účet 2016</a></td></tr></table>				</div>
+				<div id="text-content-submenu">
+					<ul>
+						<li><a href="/fotogalerie">Fotogalerie</a></li>
+						<li><a href="/virtualni-prohlidka">Virtuální prohlídka</a></li>
+						<li><a href="/zpravodaj">Zpravodaj</a></li>
+					</ul>
+				</div>
+				<div id="fast-kontakt">
+					<h2><span class="bolder">Rychlý</span> kontakt</h2>
+					<ul>
+						<li> <img src="/img/mobile.png" />+420 558 684 008</li>
+						<li> <img src="/img/post.png" /><a href="mailto:celadna@iol.cz">celadna@iol.cz</a></li>
+						<li> <img src="/img/house.png" />Čeladná č.p. 1, 739 12 Čeladná</li>
+					</ul>
+          <div style="float:right; height:240px;"><iframe src="https://polar.cz/rss/celadna" scrolling="no" class="iframe-polar" style="border:none;" width="283" height="240"></iframe></div>
+          
+				</div>
+			</div>
+			<div id="footer-block">
+	<ul>
+		<li><a href="/">O obci</a></li>
+		<li><a href="/obecni-urad">Obecní úřad</a></li>
+	</ul>
+	<ul>
+		<li><a href="/samosprava">Samospráva</a></li>
+		<li><a href="/obecni-organizace">Obecní organizace</a></li>	
+	</ul>
+	<ul>
+		<li><a href="/organizace">Organizace</a></li>
+		<li><a href="/fotogalerie">Fotogalerie</a></li>
+	</ul>
+	<ul>
+		<li><a href="/virtualni-prohlidka">Virtuální prohlídka</a></li>
+		<li><a href="/zpravodaj">Zpravodaj</a></li>
+	</ul>
+	<ul>
+		<li><a href="/podminky-uziti">Podmínky užití</a></li>
+		<li><a href="/mapa-stranek">Mapa stránek</a></li>
+	</ul>
+  
+  <a class="senior-taxi" href="/senior-taxi"><img src="/images/senioracek.png" alt="Senior Taxi"></a>
+  
+	<div id="footer-right-col">
+		<p>Copyright © 2014 Čeladná
+		Všechna práva vyhrazena.
+		</p>
+		<p>Webdesign a programování 
+		Netsimple Conspiracy s.r.o.
+		</p>
+		<a href="http://www.netsimple.cz" title="Netsimple - Tvorba webových stránek a aplikací"><img src="/img/netsimple-logo.png" /></a>
+	</div>
+  <div id="app">
+    <span class="label">Aplikace Obec Čeladná ke stažení zdarma</span>
+    <a href="https://play.google.com/store/apps/details?id=cz.tripon.obecceladna" onclick="return !bar(this.href)"><img src="/images/google.png" /></a>
+    <a href="https://itunes.apple.com/us/app/obec-celadna/id1102072135?l=cs&ls=1&mt=8" onclick="return !bar(this.href)"><img src="/images/apple.png" /></a>
+  </div>
+</div>
+
+<div class="cezFrame">
+  <a href="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/redirect"><img src="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/b/728" alt="ČEZ Distribuce – Plánované odstávky" width="728" height="90"></a>
+</div>		</div>
+	</div>
+  
+  <div id="notifee-dialog-wrapper"></div>
+  <div id="notifee-icon-wrapper"></div>
+  <div id="notifee-banner-wrapper"></div>
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-messaging.js"></script>
+  <script src="/js/notifee.js"></script>
+  <script>
+  Notifee.init("https://" + window.location.host, true);
+  </script>
+</body>
+
+</html>

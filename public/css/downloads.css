@@ -1,0 +1,13 @@
+#text-content UL {clear: both; width: 100%; float: left; margin: 0px 0px 15px 0px; padding: 0px 0px 0px 15px;}
+#text-content UL .pdf {background-image: url('/images/icon/icon-pdf.png'); background-position: left center; background-repeat: no-repeat; list-style: none; position: relative; left: -15px; padding: 5px 0px;}
+#text-content UL .pdf .text {position: relative; left: 30px;}
+#text-content UL .doc {background-image: url('/images/icon/icon-doc.png'); background-position: left center; background-repeat: no-repeat; list-style: none; position: relative; left: -15px; padding: 5px 0px;}
+#text-content UL .doc .text {position: relative; left: 30px;}
+#text-content UL .jpg {background-image: url('/images/icon/icon-jpg.png'); background-position: left center; background-repeat: no-repeat; list-style: none; position: relative; left: -15px; padding: 5px 0px;}
+#text-content UL .jpg .text {position: relative; left: 30px;}
+#text-content UL .ppt {background-image: url('/images/icon/icon-xls.png'); background-position: left center; background-repeat: no-repeat; list-style: none; position: relative; left: -15px; padding: 5px 0px;}
+#text-content UL .ppt .text {position: relative; left: 30px;}
+#text-content UL .xls {background-image: url('/images/icon/icon-xls.png'); background-position: left center; background-repeat: no-repeat; list-style: none; position: relative; left: -15px; padding: 5px 0px;}
+#text-content UL .xls .text {position: relative; left: 30px;}
+#text-content UL .zip {background-image: url('/images/icon/icon-rar.png'); background-position: left center; background-repeat: no-repeat; list-style: none; position: relative; left: -15px; padding: 5px 0px;}
+#text-content UL .zip .text {position: relative; left: 30px;}

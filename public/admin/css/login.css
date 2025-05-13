@@ -1,0 +1,15 @@
+BODY {font-family: arial; background-image: url('../images/bg.gif'); background-repeat: repeat-x; background-color: #00a6e0; background-position: center 0px; margin: 200px 0px 80px 0px;}
+
+#mainFrame {width: 340px; margin: 100px auto;}
+#mainFrame #mainContainer {width: 300px; padding: 0px 20px 20px 20px; float: left; background-color: #f2fafd; background-image: url('../images/netsimple.png'); background-position: 10px 10px; background-repeat: no-repeat;}
+#mainFrame #topFrame {width: 160px; height: 50px; padding: 20px 0px 10px 140px; margin: 0px 0px 10px 0px; float: left; color: #737373; font-size: 10px; background-image: url(../images/hr.png); background-repeat: repeat-x; background-position: left bottom; text-align: right; line-height: 1.5;}
+#mainFrame #topFrame A {color: #737373; text-decoration: none;}
+#mainFrame #topFrame A:HOVER {text-decoration: underline;}
+#mainFrame .formLine {width: 300px; padding: 0px; margin: 0px 0px 10px 0px; float: left;}
+#mainFrame .formLine .formRow {width: 130px; float: left; font-size: 12px; padding: 8px 0px 0px 0px;}
+#mainFrame .formLine .formInput {width: 150px; margin: 0px 0px 0px 0px; padding: 7px 5px; float: right; font-size: 12px;}
+#mainFrame .formLine .antispam {width: 80px; height: 29px; float: left; margin: 0px 5px 0px 8px; border: 1px #ccc solid;}
+#mainFrame .formLine .formInputAntispam {width: 58px; margin: 0px 0px 0px 0px; padding: 7px 5px; float: left; font-size: 12px; border: 1px #ccc solid;}
+#mainFrame .formLine .formSubmit {width: 160px; float: right; padding: 7px 15px 8px 15px; margin: 5px 0px 0px 0px; color: #FFF; font-size: 14px; font-weight: bold; border: 0px; font-family: arial; cursor: pointer; background-color: #8cbc32;}
+#mainFrame .error {width: 260px; padding: 5px 0px 5px 20px; margin: 0px 0px 10px 0px; float: left; background-image: url('../images/icon-delete.png'); background-position: left; background-repeat: no-repeat; font-size: 12px; color: #d9001a; font-weight: bold;}
+#mainFrame .warning {width: 300px; float: left; color: #737373; font-size: 10px; text-align: center; margin: 0px 0px 0px 0px; padding: 15px 0px 0px 0px; background-image: url(../images/hr.png); background-repeat: repeat-x; background-position: left top; }

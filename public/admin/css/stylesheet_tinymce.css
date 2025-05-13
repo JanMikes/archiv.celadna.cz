@@ -1,0 +1,12 @@
+.obrazekVlevo {float: left; margin: 0px 15px 10px 0px;}
+.obrazekVpravo {float: right; margin: 0px 0px 10px 15px;}
+table {border-collapse: collapse; border-spacing: 0px; border: 1px solid #A0A0A0; width: 100%;}
+table th {background: #7CB92C; color: #FFF; padding: 10px;}
+table tr:nth-child(even) {background: #F3F3F3;}
+table td {border: 1px solid #C0C0C0; font-size: 14px; text-align: center; padding: 4px;}
+table td.telephone {width:69px;}
+table td big {float: left; width: 100%; font-weight: 600; margin-top: 5px; margin-bottom: 5px; font-size: 15px;}
+table td a {color: #5c9116;}
+table td a:HOVER {text-decoration: none;}
+.leftColWidth {width: 240px;}
+.floatTable {float: left; width: auto;}
